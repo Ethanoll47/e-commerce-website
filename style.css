@@ -26,6 +26,10 @@ body::before {
     width: 100%;
 }
 
+.account-input {
+    width: 80%;
+}
+
 @media(min-width: 768px) {
     .news-input{
         width: 50%;
