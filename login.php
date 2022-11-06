@@ -1,3 +1,40 @@
+<?php // authenticate3.php
+require_once ('config.php');
+require_once ('dbcontroller.php');
+$database = new DBController();
+
+if(isset($_POST['email']) && isset($_POST['password'])){
+    
+    $email_temp = sanitise($pdo,$_POST['email']);
+    $password_temp = sanitise($pdo,$_POST['password']);
+    $query   = "SELECT * FROM user_tb WHERE email=$email_temp";
+    $result  = $pdo->query($query);
+    
+    if (!$result->rowCount()) die("User not found");
+    
+    $row = $result->fetch();
+    $un  = $row['username'];
+    $pw  = $row['password'];
+    
+    //if (password_verify(str_replace("'", "", $pw_temp), $pw))
+    if (password_verify($password_temp, $pw))
+    {
+        session_start();
+        
+        $_SESSION['username'] = $un;
+        
+        echo "<script>window.location = 'index.php'</script>";
+    }
+    else echo("Invalid username/password combination");
+}
+
+function sanitise($pdo, $str)
+{
+    $str = htmlentities($str);
+    return $pdo->quote($str);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,29 +47,29 @@
     <title>Company Name</title>
 </head>
 <body>
-  <section class="p-5">
+  <form action="login.php" method="post" class="p-5">
     <div class="container">
       <div class="d-flex flex-column justify-content-center align-items-center mb-3">
         <h1 class="m-4 text-center">Log In</h1>
 
         <div class="form-floating mb-3 input-box">
-          <input type="email" class="form-control" id="floatingInput" placeholder="Email Address">
+          <input type="email" class="form-control" id="floatingInput" placeholder="Email Address" name="email">
           <label for="floatingInput">Email address</label>
         </div>
 
         <div class="form-floating mb-3 input-box">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
           <label for="floatingPassword">Password</label>
         </div>
 
         <button type="submit" class="btn btn-dark btn-lg mt-3 mb-3" name="login" id="login">Log In</button>
         <div>
-          Don't have an account? <a href="createAccount.html">Sign Up Now</a>
+          Don't have an account? <a href="createAccount.php">Sign Up Now</a>
         </div>
       </div>
     </div>
 
-  </section>
+</form>
 
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
