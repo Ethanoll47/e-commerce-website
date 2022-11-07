@@ -37,14 +37,21 @@ class DBController {
 				`product_material` VARCHAR (25) NOT NULL,
 				`product_image` VARCHAR (100),
 				`product_image2` VARCHAR (100),
-				`product_image_small` VARCHAR (100),
 				`product_page` VARCHAR (100)
 			);";
 
 			if (!$this->conn->query($sql)){
 				echo "Error creating table : " . mysqli_error($this->conn);
 			}
-						
+
+			$sql ="INSERT IGNORE INTO `product_tb` (`product_brand`, `product_name`, `product_size`, `product_condition`, `product_price`, `product_color`, 
+			`product_material`, `product_image`, `product_image2`, `product_page`) VALUES
+				('Zara', 'Shirt', 'Medium', 'Very Good Condition', 20, 'White', 'Other', 'images/zara_shirt.jpg', 'images/zara_shirt2.jpg', 'zara_shirt.php');";
+
+			if (!$this->conn->query($sql)){
+				echo "Error inserting data : " . mysqli_error($this->conn);
+			}
+									
 			$sql = "CREATE TABLE IF NOT EXISTS `user_role_tb` (
 			`user_role_id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 			`user_role` VARCHAR(100) DEFAULT NULL
