@@ -48,7 +48,8 @@ class DBController {
 			`product_material`, `product_image`, `product_image2`, `product_page`) VALUES 
 				('A001', 'Zara', 'Shirt', 'Medium', 'Very Good Condition', 20, 'White', 'Other', 'images/zara_shirt.jpg', 'images/zara_shirt2.jpg', 'zara_shirt.php'),
 				('A002', 'Uniqlo', 'T-Shirt', 'Small', 'Very Good Condition', 10, 'Black', 'Cotton', 'images/uniqlo_tshirt.jpg', 'images/uniqlo_tshirt2.jpg', 'uniqlo_tshirt.php'),
-				('A003', 'Zara', 'Top', 'Small', 'Very Good Condition', 10, 'Yellow', 'Viscose', 'images/zara_top.jpg', 'images/zara_top2.jpg', 'zara_top.php');";
+				('A003', 'Zara', 'Top', 'Small', 'Very Good Condition', 10, 'Yellow', 'Viscose', 'images/zara_top.jpg', 'images/zara_top2.jpg', 'zara_top.php'),
+				('A004', 'Adidas', 'Jacket', 'Medium', 'Good Condition', 10, 'Blue', 'Other', 'images/adidas_jacket.jpg', 'images/adidas_jacket2.jpg', 'adidas_jacket.php');";
 
 			if (!$this->conn->query($sql)){
 				echo "Error inserting data : " . mysqli_error($this->conn);
