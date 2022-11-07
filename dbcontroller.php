@@ -5,9 +5,8 @@ class DBController {
 	public $password = "";
 	public $database = "thrift_db";
 	public $conn;
-
+		
 	function __construct() {
-
 		$database = $this->database;
 
 		$attr = "mysql:host=". $this->host .";dbname=";
@@ -18,7 +17,7 @@ class DBController {
 		PDO::ATTR_EMULATE_PREPARES   => false,
 		];
 		$this->conn = new PDO($attr, $this->user, $this->password, $opts);
-
+	
 		$sql = "CREATE DATABASE IF NOT EXISTS $database;";
 		
 		if ($this->conn->query($sql)){
@@ -74,9 +73,14 @@ class DBController {
 				`user_role_id` INT(11) DEFAULT 1, 
 				`first_name` VARCHAR (255) DEFAULT NULL,
 				`last_name` VARCHAR (255) DEFAULT NULL,
+				`email` VARCHAR (255) NOT NULL,
+				`phone_number` VARCHAR (15) NOT NULL,
 				`username` VARCHAR (255) NOT NULL,
-				`email` VARCHAR (255) DEFAULT NULL,
 				`password` VARCHAR (255) NOT NULL,
+				`address` VARCHAR (255) NOT NULL,
+				`postcode` VARCHAR (10) NOT NULL,
+				`city` VARCHAR (85) NOT NULL,
+				`state` VARCHAR (85) NOT NULL,
 				FOREIGN KEY (`user_role_id`) references user_role_tb(`user_role_id`)
 			);";
 
@@ -87,12 +91,6 @@ class DBController {
 			$sql = "CREATE TABLE IF NOT EXISTS `order_tb` (
 				`order_id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 				`user_id` INT(11) NOT NULL,
-				`customer_address` VARCHAR (100),
-				`city` VARCHAR (85),
-				`customer_state` VARCHAR (15),
-				`postcode` VARCHAR (10),
-				`phone_number` VARCHAR (15),
-				`credit_card_number` VARCHAR (15),
 				`order_date` DATE,
 				`payment_time` TIME,
 				FOREIGN KEY(`user_id`) references user_tb(`user_id`)
