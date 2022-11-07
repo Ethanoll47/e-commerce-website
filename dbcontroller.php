@@ -27,7 +27,7 @@ class DBController {
 			$this->conn = new PDO($attr, $this->user, $this->password, $opts);
 
 			$sql = "CREATE TABLE IF NOT EXISTS `product_tb` (
-				`product_id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+				`product_id` VARCHAR(25) NOT NULL PRIMARY KEY,
 				`product_brand` VARCHAR (25) NOT NULL,
 				`product_name` VARCHAR (25) NOT NULL,
 				`product_size` VARCHAR (25) NOT NULL,
@@ -44,9 +44,13 @@ class DBController {
 				echo "Error creating table : " . mysqli_error($this->conn);
 			}
 
-			$sql ="INSERT IGNORE INTO `product_tb` (`product_brand`, `product_name`, `product_size`, `product_condition`, `product_price`, `product_color`, 
-			`product_material`, `product_image`, `product_image2`, `product_page`) VALUES
-				('Zara', 'Shirt', 'Medium', 'Very Good Condition', 20, 'White', 'Other', 'images/zara_shirt.jpg', 'images/zara_shirt2.jpg', 'zara_shirt.php');";
+			$sql ="INSERT IGNORE INTO `product_tb` (`product_id`, `product_brand`, `product_name`, `product_size`, `product_condition`, `product_price`, `product_color`, 
+			`product_material`, `product_image`, `product_image2`, `product_page`) VALUES 
+				('A001', 'Zara', 'Shirt', 'Medium', 'Very Good Condition', 20, 'White', 'Other', 'images/zara_shirt.jpg', 'images/zara_shirt2.jpg', 'zara_shirt.php'),
+				('A002', 'Uniqlo', 'T-Shirt', 'Small', 'Very Good Condition', 10, 'Black', 'Cotton', 'images/uniqlo_tshirt.jpg', 'images/uniqlo_tshirt2.jpg', 'uniqlo_tshirt.php'),
+				('A003', 'Zara', 'Top', 'Small', 'Very Good Condition', 10, 'Yellow', 'Viscose', 'images/zara_top.jpg', 'images/zara_top2.jpg', 'zara_top.php'),
+				('A004', 'Adidas', 'Jacket', 'Medium', 'Good Condition', 10, 'Blue', 'Other', 'images/adidas_jacket.jpg', 'images/adidas_jacket2.jpg', 'adidas_jacket.php'),
+				('A005', 'Decathlon', 'Sports Bottoms', 'Medium', 'Very Good Condition', 10, 'Blue', 'Elastane', 'images/decathlon_bottoms.jpg', 'images/decathlon_bottoms2.jpg', 'decathlon_bottoms.php');";
 
 			if (!$this->conn->query($sql)){
 				echo "Error inserting data : " . mysqli_error($this->conn);
@@ -62,13 +66,7 @@ class DBController {
 			}
 			
 			$sql = "INSERT IGNORE INTO `user_role_tb` (`user_role_id`, `user_role`) VALUES
-				(1, 'admin');";
-
-			if (!$this->conn->query($sql)){
-				echo "Error inserting data : " . mysqli_error($this->conn);
-			}
-
-			$sql = "INSERT IGNORE INTO `user_role_tb` (`user_role_id`, `user_role`) VALUES
+				(1, 'admin'),
 				(2, 'user');";
 
 			if (!$this->conn->query($sql)){
@@ -109,7 +107,7 @@ class DBController {
 			
 			$sql = "CREATE TABLE IF NOT EXISTS `order_details_tb`(
 				`order_id` INT(11),
-				`product_id` INT(11),
+				`product_id` VARCHAR(25),
 				PRIMARY KEY (`order_id`, `product_id`),
 				FOREIGN KEY (`order_id`) references order_tb(`order_id`),
 				FOREIGN KEY (`product_id`) references product_tb(`product_id`)
