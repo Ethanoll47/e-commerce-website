@@ -67,35 +67,35 @@ function sanitise($pdo, $str)
           <h4 class="m-4 text-center">Personal Details</h4>
   
           <div class="row gx-3 account-input">
-            <div class="col form-floating ps-0 mb-3 text-break">
+            <div class="col form-floating ps-0 mb-3 overflow-hidden">
               <input type="text" class="form-control" id="firstName" placeholder="First name" aria-label="First name" name="firstname">
               <label for="firstName">First Name</label>
             </div>
-            <div class="col form-floating pe-0 mb-3">
+            <div class="col form-floating pe-0 mb-3 overflow-hidden">
               <input type="text" class="form-control" id="lastName" placeholder="Last name" aria-label="Last name" name="lastname">
               <label for="lastName">Last Name</label>
             </div>
           </div>
   
   
-          <div class="form-floating mb-3 account-input">
+          <div class="form-floating mb-3 account-input overflow-hidden">
             <input type="email" class="form-control" id="email" placeholder="Email Address" name="email">
             <label for="email">Email address</label>
           </div>
   
-          <div class="form-floating mb-3 account-input">
+          <div class="form-floating mb-3 account-input overflow-hidden">
               <input type="number" class="form-control" id="phoneNumber" placeholder="Phone Number" name="phonenumber">
               <label for="phoneNumber">Phone Number</label>
             </div>
   
           <h4 class="m-4 text-center">Account Details</h4>
   
-          <div class="form-floating mb-3 account-input">
+          <div class="form-floating mb-3 account-input overflow-hidden">
               <input type="text" class="form-control" id="username" placeholder="Username" name="username">
               <label for="username">Username</label>
             </div>
   
-          <div class="form-floating mb-3 account-input">
+          <div class="form-floating mb-3 account-input overflow-hidden">
             <input type="password" class="form-control" id="password" placeholder="Password" name="password">
             <label for="password">Password</label>
           </div>
@@ -105,22 +105,22 @@ function sanitise($pdo, $str)
         <div class="col-md d-flex flex-column justify-content-center align-items-center mb-3">
           <h4 class="m-4 text-center">Shipping Information</h4>
       
-          <div class="form-floating mb-3 account-input">
+          <div class="form-floating mb-3 account-input overflow-hidden">
             <input type="text" class="form-control" id="address" placeholder="Address" name="address">
             <label for="address">Address</label>
           </div>
       
-          <div class="form-floating mb-3 account-input">
+          <div class="form-floating mb-3 account-input overflow-hidden">
             <input type="text" class="form-control" id="postcode" placeholder="Postcode" name="postcode">
             <label for="postcode">Postcode</label>
           </div>
       
-          <div class="form-floating mb-3 account-input">
+          <div class="form-floating mb-3 account-input overflow-hidden">
             <input type="text" class="form-control" id="city" placeholder="City" name="city">
             <label for="city">City</label>
           </div>
       
-          <div class="form-floating mb-3 account-input">
+          <div class="form-floating mb-3 account-input overflow-hidden">
             <input type="text" class="form-control" id="state" placeholder="State" name="state">
             <label for="state">State</label>
           </div>
