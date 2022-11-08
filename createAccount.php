@@ -20,7 +20,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $phonenumber = sanitise($pdo,$_POST['phonenumber']);
     $username = sanitise($pdo,$_POST['username']);
     $password = sanitise($pdo,$_POST['password']);
-    $password = password_hash($mypassword, PASSWORD_DEFAULT);
+    $password = password_hash($password, PASSWORD_DEFAULT);
     $address = sanitise($pdo, $_POST['address']);
     $postcode = sanitise($pdo, $_POST['postcode']);
     $city = sanitise($pdo, $_POST['city']);
