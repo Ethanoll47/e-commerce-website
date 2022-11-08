@@ -5,27 +5,36 @@ $database = new DBController();
 
 if(isset($_POST['email']) && isset($_POST['password'])){
     
-    $email_temp = sanitise($pdo,$_POST['email']);
-    $password_temp = sanitise($pdo,$_POST['password']);
-    $query   = "SELECT * FROM user_tb WHERE email=$email_temp";
-    $result  = $pdo->query($query);
-    
-    if (!$result->rowCount()) die("User not found");
-    
-    $row = $result->fetch();
-    $un  = $row['username'];
-    $pw  = $row['password'];
-    
-    //if (password_verify(str_replace("'", "", $pw_temp), $pw))
-    if (password_verify($password_temp, $pw))
-    {
-        session_start();
+  $email_temp = sanitise($pdo,$_POST['email']);
+  $password_temp = sanitise($pdo,$_POST['password']);
+  $query   = "SELECT * FROM user_tb WHERE email=$email_temp";
+  $result  = $pdo->query($query);
+  
+  if (!$result->rowCount()) {
+    die("User not found");
+  }
+  
+  $row = $result->fetch();
+  $fn  = $row['first_name'];
+  $un  = $row['username'];
+  $pw  = $row['password'];
+  
+  //if (password_verify(str_replace("'", "", $pw_temp), $pw))
+  if (password_verify( $password_temp, $pw))
+  {
+      session_start();
         
-        $_SESSION['username'] = $un;
+      $_SESSION['username'] = $un;
         
-        echo "<script>window.location = 'index.php'</script>";
-    }
-    else echo("Invalid username/password combination");
+      echo "<script>window.location ='index.php'</script>";
+  }
+  else {
+    echo("Invalid email/password combination");
+  }
+}
+else
+{
+    echo ("Please enter your email and password");
 }
 
 function sanitise($pdo, $str)
@@ -53,7 +62,7 @@ function sanitise($pdo, $str)
         <h1 class="m-4 text-center">Log In</h1>
 
         <div class="form-floating mb-3 input-box">
-          <input type="email" class="form-control" id="floatingInput" placeholder="Email Address" name="email">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Email Address" name="email">
           <label for="floatingInput">Email address</label>
         </div>
 
