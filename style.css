@@ -18,9 +18,9 @@ body::before {
     width: 30px;
 }
 
-.btn:not(.nav-buttons button) {
+/* .btn:not(.nav-buttons button) {
     border-radius: 20px;
-}
+} */
 
 .input-box {
     width: 100%;
@@ -30,14 +30,31 @@ body::before {
     width: 80%;
 }
 
-.product-image {
-    width: 300px;
+.product {
+    width: 20%;
+    min-width: 280px;
+    border-radius: 20px;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.15s ease;
+}
+
+.product:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.2);
+
+}
+
+.product img {
+    border-radius: 20px;
 }
 
 a {
     text-decoration: none;
 }
 
+/* Single Product */
+.quantity {
+    width: 85px;
+}
 @media(min-width: 768px) {
     .news-input{
         width: 50%;
