@@ -31,31 +31,33 @@ function navbar(){
     </nav>';
 }
 
-function product(){
-    echo '
-    <section class="p-5">
-        <div class="container">
-            <div class="d-flex flex-column align-items-center justify-content-center flex-lg-row mt-4">
-                <div class="d-flex justify-content-center me-lg-5">
-                    <img src="images/adidas_jacket.jpg" alt="">
+function product($productbrand, $productname, $productsize, $productcondition, $productprice, $productcolor, $productmaterial, $productimage, $productid){
+    echo "
+    <form method='post' action='cart.php?action=add&product_id=$productid'>
+    <section class='p-5'>
+        <div class='container'>
+            <div class='d-flex flex-column align-items-center justify-content-center flex-lg-row mt-4'>
+                <div class='d-flex justify-content-center me-lg-5'>
+                    <img src='$productimage' alt=''>
                 </div>
 
-                <div class="pt-lg-4">
-                    <h6>Adidas</h6>
-                    <h4 class="pt-4 pb-4">Sports Jacket &#x2022 Medium</h4>
-                    <h2>RM10</h2>
-                    <h6><label for="quantity-field" class="form-label  pt-4">Quantity</label></h6>
-                    <div class="input-group quantity pb-4">
-                        <input type="number" class="form-control text-center" id="quantity-field" value="1" min="1">
+                <div class='pt-lg-4'>
+                    <h3 class='fw-bold'>$productbrand</h3>
+                    <h3 class='pt-4 pb-4'>$productname</h3>
+                    <h4>RM$productprice</h4>
+                    <h6><label for='quantity-field' class='form-label  pt-3'>Quantity</label></h6>
+                    <div class='input-group quantity pb-4'>
+                        <input type='number' class='form-control text-center' id='quantity-field' name='product_quantity' value='1' min='1'>
                     </div>
-                    <button class="btn btn-primary btn-lg">Add to Cart</button>
-                    <h4 class="pt-4 pb-2">Description</h4>
-                    <span class="lh-lg">Color: Blue <br> Material: Other</span>
+                    <button type='submit' class='btn btn-primary btn-lg' name='add_to_cart'>Add to Cart</button>
+                    <h4 class='pt-4 pb-2'>Description</h4>
+                    <span class='lh-lg'>Size: $productsize <br> Condition: $productcondition <br> Color: $productcolor <br> Material: $productmaterial</span>
                 </div>
             </div>
         </div>
     </section>
-    ';
+    </form>
+    ";
 }
 
 function cart(){
