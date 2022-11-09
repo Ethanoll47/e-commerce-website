@@ -60,6 +60,18 @@ function product($productbrand, $productname, $productsize, $productcondition, $
     ";
 }
 
+function productGallery($productbrand, $productname, $productsize, $productprice, $productimage, $productpage){
+    echo "
+    <div class='card product m-3' onclick='window.location.href='$productpage';'>
+        <img src='$productimage' alt='>
+        <div class='card-body'>
+            <span>$productbrand</span>
+            <h5>$productname &#x2022 $productsize</h5>
+            <h5>RM$productprice</h5>
+        </div>
+    </div>";
+}
+
 function cart(){
 //Get method for adding/remove item to Cart
 if(!empty($_GET["action"])) {
