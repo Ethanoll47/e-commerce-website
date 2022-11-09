@@ -30,7 +30,33 @@ function navbar(){
         </div>
     </nav>';
 }
-    
+
+function product(){
+    echo '
+    <section class="p-5">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center justify-content-center flex-lg-row mt-4">
+                <div class="d-flex justify-content-center me-lg-5">
+                    <img src="images/adidas_jacket.jpg" alt="">
+                </div>
+
+                <div class="pt-lg-4">
+                    <h6>Adidas</h6>
+                    <h4 class="pt-4 pb-4">Sports Jacket &#x2022 Medium</h4>
+                    <h2>RM10</h2>
+                    <h6><label for="quantity-field" class="form-label  pt-4">Quantity</label></h6>
+                    <div class="input-group quantity pb-4">
+                        <input type="number" class="form-control text-center" id="quantity-field" value="1" min="1">
+                    </div>
+                    <button class="btn btn-primary btn-lg">Add to Cart</button>
+                    <h4 class="pt-4 pb-2">Description</h4>
+                    <span class="lh-lg">Color: Blue <br> Material: Other</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    ';
+}
 
 function cart(){
 //Get method for adding/remove item to Cart
