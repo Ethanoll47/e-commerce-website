@@ -10,8 +10,8 @@ body::before {
     border-radius: 10px;
 }
 
-.nav-link:hover {
-    color: pink!important;
+.nav-buttons i:hover, .nav-link:hover {
+    color: rgb(245, 183, 67)!important;
 }
 
 .nav-icon {
@@ -21,7 +21,7 @@ body::before {
 /* .btn:not(.nav-buttons button) {
     border-radius: 20px;
 } */
-
+ 
 .input-box {
     width: 100%;
 }
@@ -55,6 +55,12 @@ a {
 .quantity {
     width: 85px;
 }
+
+/* Cart */
+table i:hover {
+    color: red;
+}
+
 @media(min-width: 768px) {
     .news-input{
         width: 50%;

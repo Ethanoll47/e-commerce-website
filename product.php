@@ -11,13 +11,13 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info py-3 fixed-top">
         <div class="container">
-            <a href="#" class="navbar-brand order-lg-0">Company Name</a>
+            <a href="#" class="navbar-brand order-lg-0 text-light pt-0"><i class="bi bi-recycle fs-4 text-light"></i> THRIFTED</a>
 
             <div class="nav-buttons order-lg-2">
-                <button type="button" class="btn position-relative pt-0"><i class="bi bi-cart fs-4 text-secondary"></i></button>
-                <button type="button" class="btn position-relative pt-0"><a href="login.html"></a><i class="bi bi-person-circle fs-4 text-secondary"></i></a></button>
+                <button type="button" class="btn position-relative pt-0 pb-1"><i class="bi bi-cart fs-4 text-light"></i></button>
+                <button type="button" class="btn position-relative pt-0 pb-1"><a href="login.html"></a><i class="bi bi-person-circle fs-4 text-light"></i></a></button>
             </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
@@ -27,18 +27,18 @@
             <div class="collapse navbar-collapse order-lg-1" id="navmenu">
                 <ul class="navbar-nav mx-auto text-center">
                     <li class="nav-item">
-                        <a href="#" class="nav-link px-4 py-2">Home</a>
+                        <a href="#" class="nav-link text-light px-4 py-2">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#products" class="nav-link px-4 py-2">Products</a>
+                        <a href="#products" class="nav-link text-light px-4 py-2">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#about" class="nav-link px-4 py-2">About Us</a>
+                        <a href="#about" class="nav-link text-light px-4 py-2">About Us</a>
                     </li>
                 </ul>
             </div>
         </div>
-    </nav>
+      </nav>
 
     <!-- Product Details -->
     <section class="p-5">
@@ -56,7 +56,7 @@
                     <div class="input-group quantity pb-4">
                         <input type="number" class="form-control text-center" id="quantity-field" value="1" min="1">
                     </div>
-                    <button class="btn btn-primary btn-lg">Add to Cart</button>
+                    <button class="btn btn-info text-light btn-lg">Add to Cart</button>
                     <h4 class="pt-4 pb-2">Description</h4>
                     <span class="lh-lg">Color: Blue <br> Material: Other</span>
                 </div>
