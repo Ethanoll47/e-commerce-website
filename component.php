@@ -1,39 +1,40 @@
 <?php
 
 function navbar(){
-    echo '<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
-        <div class="container">
-            <a href="#" class="navbar-brand order-lg-0">Company Name</a>
+    echo "
+    <nav class='navbar navbar-expand-lg navbar-dark bg-info py-3 fixed-top'>
+        <div class='container'>
+            <a href='index.php' class='navbar-brand order-lg-0 text-light pt-0'><i class='bi bi-recycle fs-4 text-light'></i> THRIFTED</a>
 
-            <div class="nav-buttons order-lg-2">
-                <button type="button" class="btn position-relative pt-0"><i class="bi bi-cart fs-4 text-secondary"></i></button>
-                <button type="button" class="btn position-relative pt-0"><a href="login.html"></a><i class="bi bi-person-circle fs-4 text-secondary"></i></a></button>
+            <div class='nav-buttons order-lg-2'>
+                <button type='button' class='btn position-relative pt-0 pb-1'><a href='cart.php'><i class='bi bi-cart fs-4 text-light'></i></a></button>
+                <button type='button' class='btn position-relative pt-0 pb-1'><a href='login.php'></a><i class='bi bi-person-circle fs-4 text-light'></i></a></button>
             </div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
+            <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navmenu'>
+                <span class='navbar-toggler-icon'></span>
             </button>
 
-            <div class="collapse navbar-collapse order-lg-1" id="navmenu">
-                <ul class="navbar-nav mx-auto text-center">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link px-4 py-2">Home</a>
+            <div class='collapse navbar-collapse order-lg-1' id='navmenu'>
+                <ul class='navbar-nav mx-auto text-center'>
+                    <li class='nav-item'>
+                        <a href='index.php' class='nav-link text-light px-4 py-2'>Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#products" class="nav-link px-4 py-2">Products</a>
+                    <li class='nav-item'>
+                        <a href='products.php' class='nav-link text-light px-4 py-2'>Products</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link px-4 py-2">About Us</a>
+                    <li class='nav-item'>
+                        <a href='#about' class='nav-link text-light px-4 py-2'>About Us</a>
                     </li>
                 </ul>
             </div>
         </div>
-    </nav>';
+      </nav>";
 }
 
-function product($productbrand, $productname, $productsize, $productcondition, $productprice, $productcolor, $productmaterial, $productimage, $productid){
+function product($productbrand, $productname, $productsize, $productcondition, $productprice, $productcolor, $productmaterial, $productimage, $productid, $productpage){
     echo "
-    <form method='post' action='cart.php?action=add&product_id=$productid'>
+    <form method='post' action='$productpage?action=add&product_id=$productid'>
     <section class='p-5'>
         <div class='container'>
             <div class='d-flex flex-column align-items-center justify-content-center flex-lg-row mt-4'>
@@ -73,7 +74,9 @@ function productGallery($productbrand, $productname, $productsize, $productprice
 }
 
 function cart(){
-//Get method for adding/remove item to Cart
+
+$db_handle = new DBController();
+//Get method for adding item to Cart
 if(!empty($_GET["action"])) {
     switch($_GET["action"]) {
         case "add":
@@ -125,6 +128,6 @@ if(!empty($_GET["action"])) {
             unset($_SESSION["cart_item"]);
         break;	
     }
-    }
+}
 }
 ?>
