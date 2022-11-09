@@ -133,5 +133,14 @@ class DBController {
 		$rowcount = $result->rowCount();
 		return $rowcount;	
 	}
+
+	function getData($id) {
+		$sql = "SELECT * FROM `product_tb` WHERE product_id = '$id'";
+		$result = $this->conn->query($sql);
+
+		if($result->rowCount() > 0){
+			return $result;
+		}
+	}
 }
 ?>
