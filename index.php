@@ -17,11 +17,11 @@ $database = new DBController();
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-info py-3 fixed-top">
         <div class="container">
-            <a href="#" class="navbar-brand order-lg-0 text-light pt-0"><i class="bi bi-recycle fs-4 text-light"></i> THRIFTED</a>
+            <a href="index.php" class="navbar-brand order-lg-0 text-light pt-0"><i class="bi bi-recycle fs-4 text-light"></i> THRIFTED</a>
 
             <div class="nav-buttons order-lg-2">
-                <button type="button" class="btn position-relative pt-0 pb-1"><i class="bi bi-cart fs-4 text-light"></i></button>
-                <button type="button" class="btn position-relative pt-0 pb-1"><a href="login.html"></a><i class="bi bi-person-circle fs-4 text-light"></i></a></button>
+                <button type="button" class="btn position-relative pt-0 pb-1"><a href="cart.php"><i class="bi bi-cart fs-4 text-light"></i></a></button>
+                <button type="button" class="btn position-relative pt-0 pb-1"><a href="login.php"><i class="bi bi-person-circle fs-4 text-light"></i></a></button>
             </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
@@ -31,14 +31,26 @@ $database = new DBController();
             <div class="collapse navbar-collapse order-lg-1" id="navmenu">
                 <ul class="navbar-nav mx-auto text-center">
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-light px-4 py-2">Home</a>
+                        <a href="index.php" class="nav-link text-light px-4 py-2">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#products" class="nav-link text-light px-4 py-2">Products</a>
+                        <a href="products.php" class="nav-link text-light px-4 py-2">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#about" class="nav-link text-light px-4 py-2">About Us</a>
+                        <a href="about.php" class="nav-link text-light px-4 py-2">About Us</a>
                     </li>
+                    <!-- Only visible to Admin -->
+                    <?php
+                    if($_SESSION['user_role_id'] == 1){?>
+                    <li class="nav-item">
+                        <a href="accounts.php" class="nav-link text-light px-4 py-2">Accounts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="orders.php" class="nav-link text-light px-4 py-2">Orders</a>
+                    </li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
