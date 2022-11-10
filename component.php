@@ -32,6 +32,16 @@ function navbar(){
       </nav>";
 }
 
+function footer(){
+    echo "
+    <footer class='p-5 bg-info text-white text-center fixed-bottom'>
+        <div class='container'>
+            <p class='lead'>Copyright &copy 2022 Company Name</p>
+            <a href='#' class='position-absolute bottom-0 end-0 p-5'><i class='bi bi-arrow-up-circle h1'></i></a>
+        </div>
+    </footer>";
+}
+
 function product($productbrand, $productname, $productsize, $productcondition, $productprice, $productcolor, $productmaterial, $productimage, $productid, $productpage){
     echo "
     <form method='post' action='$productpage?action=add&product_id=$productid'>
