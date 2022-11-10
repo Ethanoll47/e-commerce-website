@@ -2,6 +2,7 @@
 
 session_start();
 require_once("dbcontroller.php");
+require_once("component.php");
 
 $db_handle = new DBController();
 ?>
@@ -19,24 +20,22 @@ $db_handle = new DBController();
 <body>
     <!-- All Products -->
     <section class="p-5">
-        <h1 class="m-4 text-center">Products</h1>
-        <div class="container">
+        <div class="container text-center">
+            <h2 class="mb-4">Products</h2>   
             <div class="d-flex flex-wrap justify-content-center">
             <?php
             $product_array = $db_handle->runQuery("SELECT * FROM product_tb ORDER BY product_id");
             if (!empty($product_array)) {
                 foreach($product_array as $key=>$value){  
             ?>
-                <div class="m-4">
-                    <a href="" class="link-dark ">
-                        <img src="<?php echo $product_array[$key]["product_image"]; ?>" class="product-image" alt="product image">   
-                        <div class="text-center"> 
-                            <?php echo $product_array[$key]["product_brand"]; ?>
-                            <h3><?php echo $product_array[$key]["product_name"]; ?> | <?php echo $product_array[$key]["product_size"]; ?></h3>
-                            <p><?php echo "RM".$product_array[$key]["product_price"]; ?></p>
-                        </div>
-                    </a> 
-                </div> 
+                <div class="card product m-3" onclick="window.location.href='<?php echo $product_array[$key]['product_page']; ?>';">
+                    <img src="<?php echo $product_array[$key]["product_image"]; ?>" alt="">
+                    <div class="card-body">
+                        <span><?php echo $product_array[$key]["product_brand"]; ?></span>
+                        <h5><?php echo $product_array[$key]["product_name"]; ?> &#x2022 <?php echo $product_array[$key]["product_size"]; ?></h5>
+                        <h5><?php echo "RM".$product_array[$key]["product_price"]; ?></h5>
+                    </div>
+                </div>
             <?php
                 }
             }
@@ -45,9 +44,11 @@ $db_handle = new DBController();
         </div>
     </section>
 
+    <!-- Footer -->
+    <?php
+    footer();
+    ?>
   
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
