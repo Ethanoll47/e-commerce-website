@@ -1,36 +1,56 @@
-<?php
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-info py-3 fixed-top">
+        <div class="container">
+            <a href="index.php" class="navbar-brand order-lg-0 text-light pt-0"><i class="bi bi-recycle fs-4 text-light"></i> THRIFTED</a>
 
-function navbar(){
-    echo "
-    <nav class='navbar navbar-expand-lg navbar-dark bg-info py-3 fixed-top'>
-        <div class='container'>
-            <a href='index.php' class='navbar-brand order-lg-0 text-light pt-0'><i class='bi bi-recycle fs-4 text-light'></i> THRIFTED</a>
-
-            <div class='nav-buttons order-lg-2'>
-                <button type='button' class='btn position-relative pt-0 pb-1'><a href='cart.php'><i class='bi bi-cart fs-4 text-light'></i></a></button>
-                <button type='button' class='btn position-relative pt-0 pb-1'><a href='login.php'></a><i class='bi bi-person-circle fs-4 text-light'></i></a></button>
+            <div class="nav-buttons order-lg-2">
+                <button type="button" class="btn position-relative pt-0 pb-1"><a href="cart.php"><i class="bi bi-cart fs-4 text-light"></i></a></button>
+                 <!-- Only visible if not logged in -->
+                    <?php
+                    if(isset($_SESSION['username'])){?>
+                        <button type="button" class="btn position-relative pt-0 pb-1"><a href="profile.php"><i class="bi bi-person-circle fs-4 text-light"></i></a></button>
+                    <?php
+                    }
+                    else {
+                    ?>
+                        <button type="button" class="btn position-relative text-light pt-0 pb-1"><a href="login.php">Login</a></button>
+                    <?php
+                    }
+                    ?>
             </div>
 
-            <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navmenu'>
-                <span class='navbar-toggler-icon'></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class='collapse navbar-collapse order-lg-1' id='navmenu'>
-                <ul class='navbar-nav mx-auto text-center'>
-                    <li class='nav-item'>
-                        <a href='index.php' class='nav-link text-light px-4 py-2'>Home</a>
+            <div class="collapse navbar-collapse order-lg-1" id="navmenu">
+                <ul class="navbar-nav mx-auto text-center">
+                    <li class="nav-item">
+                        <a href="index.php" class="nav-link text-light px-4 py-2">Home</a>
                     </li>
-                    <li class='nav-item'>
-                        <a href='products.php' class='nav-link text-light px-4 py-2'>Products</a>
+                    <li class="nav-item">
+                        <a href="products.php" class="nav-link text-light px-4 py-2">Products</a>
                     </li>
-                    <li class='nav-item'>
-                        <a href='#about' class='nav-link text-light px-4 py-2'>About Us</a>
+                    <li class="nav-item">
+                        <a href="about.php" class="nav-link text-light px-4 py-2">About Us</a>
                     </li>
+                    <!-- Only visible to Admin -->
+                    <?php
+                    if($_SESSION['user_role_id'] == 1){?>
+                    <li class="nav-item">
+                        <a href="accounts.php" class="nav-link text-light px-4 py-2">Accounts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="orders.php" class="nav-link text-light px-4 py-2">Orders</a>
+                    </li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
-      </nav>";
-}
+      </nav>
+<?php
 
 function footer(){
     echo "
@@ -74,7 +94,7 @@ function product($productbrand, $productname, $productsize, $productcondition, $
 function productGallery($productbrand, $productname, $productsize, $productprice, $productimage, $productpage){
     echo "
     <div class='card product m-3' onclick='window.location.href='$productpage';'>
-        <img src='$productimage' alt='>
+        <img src='$productimage' alt=''>
         <div class='card-body'>
             <span>$productbrand</span>
             <h5>$productname &#x2022 $productsize</h5>
