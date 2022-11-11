@@ -1,6 +1,8 @@
 <?php // authenticate3.php
 require_once ('config.php');
 require_once ('dbcontroller.php');
+require_once ('component.php');
+
 $database = new DBController();
 
 if(isset($_POST['email']) && isset($_POST['password'])){
@@ -31,10 +33,6 @@ if(isset($_POST['email']) && isset($_POST['password'])){
   else {
     echo("Invalid email/password combination");
   }
-}
-else
-{
-    echo ("Please enter your email and password");
 }
 
 function sanitise($pdo, $str)
