@@ -2,6 +2,8 @@
 require_once ('config.php');
 require_once ('dbcontroller.php');
 
+$validation = "";
+
 if(isset($_POST['username']) && isset($_POST['password'])){
 
     try
