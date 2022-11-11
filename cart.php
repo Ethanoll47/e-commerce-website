@@ -21,8 +21,6 @@ cart();
 </head>
 <body>
     <?php
-    // Navigation bar
-    navbar();
   
     if(isset($_SESSION["cart_item"])){
         $total_quantity = 0;
@@ -52,10 +50,10 @@ cart();
                     <tbody>
                         <tr>
                             <td><img src="<?php echo $item["product_image"]; ?>" width="70px" alt=""></td>
-                            <td><?php echo $item["product_brand"]; echo $item["product_name"]; ?></td>
+                            <td><?php echo $item["product_brand"]; echo " "; echo $item["product_name"]; ?></td>
                             <td><?php echo $item["product_price"]; ?></td>
                             <td><?php echo $item["product_quantity"]; ?></td>
-                            <td><?php echo "$ ". number_format($item_price,2); ?></td>
+                            <td><?php echo "RM ". number_format($item_price,2); ?></td>
                             <td><a href="cart.php?action=remove&product_id=<?php echo $item["product_id"]; ?>"><i class="bi bi-trash-fill"></i></a></td>
                         </tr>
                     </tbody>
@@ -70,7 +68,7 @@ cart();
                         <td></td>
                         <td></td>
                         <td><h4 class="mt-2">Total:</h4></td>
-                        <td><h4 class="mt-2"><?php echo "$ ".number_format($total_price, 2); ?></h4></td>
+                        <td><h4 class="mt-2"><?php echo "RM ".number_format($total_price, 2); ?></h4></td>
                     </tfoot>
                 </table>
             </div>
@@ -83,7 +81,11 @@ cart();
     } else {
     ?>
     <!-- When cart is empty  -->
-    <div class="no-records">Your Cart is Empty</div>
+    <section class="p-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Your Cart is Empty</h2>  
+        </div>
+    </section>
     <?php 
     }
     ?>
