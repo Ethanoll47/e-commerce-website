@@ -36,14 +36,16 @@
                     </li>
                     <!-- Only visible to Admin -->
                     <?php
-                    if($_SESSION['user_role_id'] == 1){?>
-                    <li class="nav-item">
-                        <a href="accounts.php" class="nav-link text-light px-4 py-2">Accounts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="orders.php" class="nav-link text-light px-4 py-2">Orders</a>
-                    </li>
-                    <?php
+                    if(isset($_SESSION['user_role_id'])){
+                        if($_SESSION['user_role_id'] == 1){?>
+                        <li class="nav-item">
+                            <a href="accounts.php" class="nav-link text-light px-4 py-2">Accounts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="orders.php" class="nav-link text-light px-4 py-2">Orders</a>
+                        </li>
+                        <?php
+                        }
                     }
                     ?>
                 </ul>
