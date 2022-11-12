@@ -78,7 +78,7 @@ class DBController {
 			
 			$sql = "CREATE TABLE IF NOT EXISTS `user_tb` (
 				`user_id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-				`user_role_id` INT(11) DEFAULT 1, 
+				`user_role_id` INT(11) DEFAULT 2, 
 				`first_name` VARCHAR (255) DEFAULT NULL,
 				`last_name` VARCHAR (255) DEFAULT NULL,
 				`email` VARCHAR (255) NOT NULL,
@@ -94,6 +94,13 @@ class DBController {
 
 			if (!$this->conn->query($sql)){
 				echo "Error creating table : " . mysqli_error($this->conn);
+			}
+
+			$sql = "INSERT IGNORE INTO `user_tb` (`user_id`, `user_role_id`, `first_name`, `last_name`, `email`, `phone_number`, `username`, `password`, `address`, `postcode`, `city`, `state`) VALUES
+				(1, 1, 'Edric', 'Leong', 'edricleongyj@gmail.com', '0182666828', 'Edric', '$2y$10\$xcpYtO9rEXHruEj.gxuZFeKAcIYOWf/oBg.wbGHQeXlp4m6Wgt7b6', '20, Jalan Puteri 12/17A, Bandar Puteri', '47100', 'Puchong', 'Selangor');";
+
+			if (!$this->conn->query($sql)){
+				echo "Error inserting data : " . mysqli_error($this->conn);
 			}
 			
 			$sql = "CREATE TABLE IF NOT EXISTS `order_tb` (
