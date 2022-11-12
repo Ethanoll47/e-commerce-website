@@ -1,9 +1,11 @@
 <?php // authenticate3.php
-require_once ('config.php');
-require_once ('dbcontroller.php');
-require_once ('component.php');
 
+require_once ('dbcontroller.php');
 $database = new DBController();
+
+require_once ('component.php');
+require_once ('config.php');
+
 
 if(isset($_POST['email']) && isset($_POST['password'])){
     
@@ -20,6 +22,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
   $fn  = $row['first_name'];
   $un  = $row['username'];
   $pw  = $row['password'];
+  $user_role_id = $row['user_role_id'];
   
   //if (password_verify(str_replace("'", "", $pw_temp), $pw))
   if (password_verify( $password_temp, $pw))
@@ -27,6 +30,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
       session_start();
         
       $_SESSION['username'] = $un;
+      $_SESSION['user_role_id'] = $user_role_id;
         
       echo "<script>window.location ='index.php'</script>";
   }
