@@ -2,11 +2,12 @@
 session_start();
 
 require_once ('dbcontroller.php');
+$database = new DBController();
 require_once("component.php");
 require_once("config.php");
 require_once("navbar.php");
 
-$database = new DBController();
+
 
 if(isset($_GET['logout']) && $_GET['logout'] == true){
 	destroy_session_and_data();
@@ -19,6 +20,7 @@ function destroy_session_and_data(){
     //$_SESSION = array();
     
     unset($_SESSION['username']);
+    unset($_SESSION['user_role_id']);
     $_SESSION = array();
     session_unset();
     setcookie(session_name(), '', time() - 2592000, '/');
