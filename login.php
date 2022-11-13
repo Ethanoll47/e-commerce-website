@@ -1,10 +1,10 @@
 <?php // authenticate3.php
 
-require_once ('dbcontroller.php');
+require_once ("php/dbcontroller.php");
 $database = new DBController();
 
-require_once ('component.php');
-require_once ('config.php');
+require_once ("php/component.php");
+require_once ("php/config.php");
 
 
 if(isset($_POST['email']) && isset($_POST['password'])){

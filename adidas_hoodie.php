@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-require_once("dbcontroller.php");
-require_once("component.php");
+require_once("php/dbcontroller.php");
+require_once("php/component.php");
 
 $db_handle = new DBController();
 cart();
