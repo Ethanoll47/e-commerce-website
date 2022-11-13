@@ -19,7 +19,7 @@ try{
 
 function getUserAccessRoleByID($id){
 	global $pdo;
-	$query = "select user_role from tbl_user_role where id = ".$id;
+	$query = "SELECT user_role FROM user_role_tb WHERE user_role_id = ".$id;
 	$result = $pdo->query($query);
 	$row = $result->fetch();
 

@@ -2,6 +2,8 @@
 require_once ('config.php');
 require_once ('dbcontroller.php');
 
+$validation = "";
+
 if(isset($_POST['username']) && isset($_POST['password'])){
 
     try
@@ -26,17 +28,27 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $city = sanitise($pdo, $_POST['city']);
     $state = sanitise($pdo, $_POST['state']);
     
+    //data validation
+	
+    $validation .= data_validation($_POST['email'],  "/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/" , "email");
+    $validation .= data_validation($_POST['phonenumber'],  "/^(01)[0-46-9]*[0-9]{7,8}$/" , "phonenumber");
+    $validation .= data_validation($_POST['password'], '/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{6,12}$/', "password- at least one letter, at least one number, and there have to be 6-12 characters");
+    $validation .= data_validation($_POST['postcode'],  "/^\d{5}$/" , "postcode");
 
-    $query = "INSERT INTO $table (user_id, first_name, last_name, email, phone_number, username, password, address, postcode, city, state)
-			VALUES(NULL,$firstname, $lastname, $email, $phonenumber, $username, '$password', $address, $postcode, $city, $state)";
-    //dob datetime format = 2013-02-02 10:13:20
-    
-    $result = $pdo->query($query);
-    
-    if (! $result){
-        die('Error: ' . mysqli_error());
+    if ($validation== ""){
+      $query = "INSERT INTO $table (user_id, first_name, last_name, email, phone_number, username, password, address, postcode, city, state)
+        VALUES(NULL,$firstname, $lastname, $email, $phonenumber, $username, '$password', $address, $postcode, $city, $state)";
+      //dob datetime format = 2013-02-02 10:13:20
+      
+      $result = $pdo->query($query);
+      
+      if (! $result){
+          die('Error: ' . mysqli_error());
+      }
+      header("location:login.php");
     }
-    header("location:login.php");
+    else{
+      echo $validation;}
 }
 
 function sanitise($pdo, $str)
@@ -44,6 +56,14 @@ function sanitise($pdo, $str)
     $str = htmlentities($str);
     return $pdo->quote($str);
 }
+
+function data_validation($data, $data_pattern, $data_type){
+	if (preg_match($data_pattern, $data)) {
+		return "";
+	} else { 
+		return " Invalid data for " .  $data_type . ";";
+	}   
+}    	
 ?>
 
 <!DOCTYPE html>

@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+require_once("dbcontroller.php");
+require_once("component.php");
+
+$db_handle = new DBController();
+
+cart();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,37 +20,12 @@
     <title>Company Name</title>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info py-3 fixed-top">
-        <div class="container">
-            <a href="#" class="navbar-brand order-lg-0 text-light pt-0"><i class="bi bi-recycle fs-4 text-light"></i> THRIFTED</a>
-
-            <div class="nav-buttons order-lg-2">
-                <button type="button" class="btn position-relative pt-0 pb-1"><i class="bi bi-cart fs-4 text-light"></i></button>
-                <button type="button" class="btn position-relative pt-0 pb-1"><a href="login.html"></a><i class="bi bi-person-circle fs-4 text-light"></i></a></button>
-            </div>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse order-lg-1" id="navmenu">
-                <ul class="navbar-nav mx-auto text-center">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light px-4 py-2">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#products" class="nav-link text-light px-4 py-2">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link text-light px-4 py-2">About Us</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-      </nav>
-    
-
+    <?php
+  
+    if(isset($_SESSION["cart_item"])){
+        $total_quantity = 0;
+        $total_price = 0;
+    ?>
     <!-- Cart -->
     <section class="p-5">
         <div class="container text-center">
@@ -57,39 +42,33 @@
                             <th scope="col">Remove</th>
                         </tr>
                     </thead>
+
+                    <?php		
+                    foreach ($_SESSION["cart_item"] as $item){
+                        $item_price = $item["product_quantity"]*$item["product_price"];
+                    ?>
                     <tbody>
                         <tr>
-                            <td><img src="images/adidas_jacket.jpg" width="70px" alt=""></td>
-                            <td>Adidas Jacket</td>
-                            <td>RM10</td>
-                            <td>1</td>
-                            <td>RM10</td>
-                            <td><a href="login.html"></a><i class="bi bi-trash-fill"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td><img src="images/adidas_jacket.jpg" width="70px" alt=""></td>
-                            <td>Adidas Jacket</td>
-                            <td>RM10</td>
-                            <td>1</td>
-                            <td>RM10</td>
-                            <td><a href="login.html"></a><i class="bi bi-trash-fill"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td><img src="images/adidas_jacket.jpg" width="70px" alt=""></td>
-                            <td>Adidas Jacket</td>
-                            <td>RM10</td>
-                            <td>1</td>
-                            <td>RM10</td>
-                            <td><a href="login.html"></a><i class="bi bi-trash-fill"></i></a></td>
+                            <td><img src="<?php echo $item["product_image"]; ?>" width="70px" alt=""></td>
+                            <td><?php echo $item["product_brand"]; echo " "; echo $item["product_name"]; ?></td>
+                            <td><?php echo $item["product_price"]; ?></td>
+                            <td><?php echo $item["product_quantity"]; ?></td>
+                            <td><?php echo "RM ". number_format($item_price,2); ?></td>
+                            <td><a href="cart.php?action=remove&product_id=<?php echo $item["product_id"]; ?>"><i class="bi bi-trash-fill"></i></a></td>
                         </tr>
                     </tbody>
+                    <?php
+                    $total_quantity += $item["product_quantity"];
+                    $total_price += ($item["product_price"]*$item["product_quantity"]);
+                    }
+                    ?>
                     <tfoot> 
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td><h4 class="mt-2">Total:</h4></td>
-                        <td><h4 class="mt-2">RM30</h4></td>
+                        <td><h4 class="mt-2"><?php echo "RM ".number_format($total_price, 2); ?></h4></td>
                     </tfoot>
                 </table>
             </div>
@@ -98,6 +77,18 @@
             </div>
         </div>
     </section>
+    <?php
+    } else {
+    ?>
+    <!-- When cart is empty  -->
+    <section class="p-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Your Cart is Empty</h2>  
+        </div>
+    </section>
+    <?php 
+    }
+    ?>
 
     <!-- Footer -->
     <footer class="p-5 bg-info text-white text-center fixed-bottom">
