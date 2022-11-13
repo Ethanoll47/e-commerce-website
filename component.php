@@ -1,3 +1,15 @@
+<?php
+if (isset($_SESSION['username'])) {
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5)) {
+        destroy_session_and_data();
+        
+        echo "<script>alert('Session time out. You have been logged out.')</script>";
+        echo "<script>window.location = 'index.php'</script>";
+    }
+    $_SESSION['LAST_ACTIVITY'] = time(); //update last activity time stamp
+}
+
+?>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-info py-3 fixed-top">
         <div class="container">
@@ -52,16 +64,18 @@
             </div>
         </div>
       </nav>
-<?php
 
+
+<?php
 function footer(){
     echo "
-    <footer class='p-5 bg-info text-white text-center fixed-bottom'>
+    <footer class='p-5 bg-info text-white text-center position-absolute bottom-0 start-0 end-0'>
         <div class='container'>
             <p class='lead'>Copyright &copy 2022 Company Name</p>
             <a href='#' class='position-absolute bottom-0 end-0 p-5'><i class='bi bi-arrow-up-circle h1'></i></a>
         </div>
-    </footer>";
+    </footer>
+    ";
 }
 
 function product($productbrand, $productname, $productsize, $productcondition, $productprice, $productcolor, $productmaterial, $productimage, $productid, $productpage){
@@ -161,5 +175,14 @@ if(!empty($_GET["action"])) {
         break;	
     }
 }
+}
+
+function destroy_session_and_data(){
+    unset($_SESSION['username'], $_SESSION['user_role_id']);
+
+    $_SESSION = array();
+    session_unset();
+    setcookie(session_name(), '', time() - 2592000, '/');
+    session_destroy();
 }
 ?>

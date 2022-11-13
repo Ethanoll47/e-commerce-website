@@ -13,17 +13,6 @@ if(isset($_GET['logout']) && $_GET['logout'] == true){
 	exit;
 }
 
-function destroy_session_and_data(){
-    //session_start();
-    //$_SESSION = array();
-    
-    unset($_SESSION['username'], $_SESSION['user_role_id']);
-
-    $_SESSION = array();
-    session_unset();
-    setcookie(session_name(), '', time() - 2592000, '/');
-    session_destroy();
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,13 +39,6 @@ function destroy_session_and_data(){
     }
     else echo "Please <a href='login.php'>Click Here</a> to log in.";
     ?>
-
-
-    <!-- Footer -->
-    <?php
-    footer();
-    ?>
-
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
