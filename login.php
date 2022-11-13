@@ -15,7 +15,8 @@ if(isset($_POST['email']) && isset($_POST['password'])){
   $result  = $pdo->query($query);
   
   if (!$result->rowCount()) {
-    die("User not found");
+    echo "<script>alert('Invalid email/password.')</script>";
+    echo "<script>window.location = 'login.php'</script>";
   }
   
   $row = $result->fetch();
