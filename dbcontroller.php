@@ -37,7 +37,8 @@ class DBController {
 				`product_material` VARCHAR (25) NOT NULL,
 				`product_image` VARCHAR (100),
 				`product_image2` VARCHAR (100),
-				`product_page` VARCHAR (100)
+				`product_page` VARCHAR (100),
+				`product_category` VARCHAR (100)
 			);";
 
 			if (!$this->conn->query($sql)){
@@ -45,15 +46,15 @@ class DBController {
 			}
 
 			$sql ="INSERT IGNORE INTO `product_tb` (`product_id`, `product_brand`, `product_name`, `product_size`, `product_condition`, `product_price`, `product_color`, 
-			`product_material`, `product_image`, `product_image2`, `product_page`) VALUES 
-				('A001', 'Zara', 'Shirt', 'Medium', 'Very Good Condition', 20, 'White', 'Other', 'images/zara_shirt.jpg', 'images/zara_shirt2.jpg', 'zara_shirt.php'),
-				('A002', 'Uniqlo', 'T-Shirt', 'Small', 'Very Good Condition', 10, 'Black', 'Cotton', 'images/uniqlo_tshirt.jpg', 'images/uniqlo_tshirt2.jpg', 'uniqlo_tshirt.php'),
-				('A003', 'Zara', 'Top', 'Small', 'Very Good Condition', 10, 'Yellow', 'Viscose', 'images/zara_top.jpg', 'images/zara_top2.jpg', 'zara_top.php'),
-				('A004', 'Adidas', 'Jacket', 'Medium', 'Good Condition', 10, 'Blue', 'Other', 'images/adidas_jacket.jpg', 'images/adidas_jacket2.jpg', 'adidas_jacket.php'),
-				('A005', 'Decathlon', 'Sports Bottoms', 'Medium', 'Very Good Condition', 10, 'Blue', 'Elastane', 'images/decathlon_bottoms.jpg', 'images/decathlon_bottoms2.jpg', 'decathlon_bottoms.php'),
-				('A006', 'Adidas', 'Hoodie', 'Medium', 'Good Condition', 30, 'Blacl', 'Other', 'images/adidas_hoodie.jpg', 'images/adidas_hoodie2.jpg', 'adidas_hoodie.php'),
-				('A007', 'Uniqlo', 'Jumpsuit', 'Small', 'Very Good Condition', 35, 'Green', 'Other', 'images/uniqlo_jumpsuit.jpg', 'images/uniqlo_jumpsuit2.jpg', 'uniqlo_jumpsuit.php'),
-				('A008', 'Decathlon', 'Sports Top', 'Medium', 'Very Good Condition', 10, 'Black', '100% Polyester', 'images/decathlon_top.jpg', 'images/decathlon_top2.jpg', 'decathlon_top.php');";
+			`product_material`, `product_image`, `product_image2`, `product_page`, `product_category`) VALUES 
+				('A001', 'Zara', 'Shirt', 'Medium', 'Very Good Condition', 20, 'White', 'Other', 'images/zara_shirt.jpg', 'images/zara_shirt2.jpg', 'zara_shirt.php', 'Men'),
+				('A002', 'Uniqlo', 'T-Shirt', 'Small', 'Very Good Condition', 10, 'Black', 'Cotton', 'images/uniqlo_tshirt.jpg', 'images/uniqlo_tshirt2.jpg', 'uniqlo_tshirt.php', 'Women'),
+				('A003', 'Zara', 'Top', 'Small', 'Very Good Condition', 10, 'Yellow', 'Viscose', 'images/zara_top.jpg', 'images/zara_top2.jpg', 'zara_top.php', 'Women'),
+				('A004', 'Adidas', 'Jacket', 'Medium', 'Good Condition', 10, 'Blue', 'Other', 'images/adidas_jacket.jpg', 'images/adidas_jacket2.jpg', 'adidas_jacket.php', 'Men'),
+				('A005', 'Decathlon', 'Sports Bottoms', 'Medium', 'Very Good Condition', 10, 'Blue', 'Elastane', 'images/decathlon_bottoms.jpg', 'images/decathlon_bottoms2.jpg', 'decathlon_bottoms.php', 'Men'),
+				('A006', 'Adidas', 'Hoodie', 'Medium', 'Good Condition', 30, 'Blacl', 'Other', 'images/adidas_hoodie.jpg', 'images/adidas_hoodie2.jpg', 'adidas_hoodie.php', 'Men'),
+				('A007', 'Uniqlo', 'Jumpsuit', 'Small', 'Very Good Condition', 35, 'Green', 'Other', 'images/uniqlo_jumpsuit.jpg', 'images/uniqlo_jumpsuit2.jpg', 'uniqlo_jumpsuit.php', 'Women'),
+				('A008', 'Decathlon', 'Sports Top', 'Medium', 'Very Good Condition', 10, 'Black', '100% Polyester', 'images/decathlon_top.jpg', 'images/decathlon_top2.jpg', 'decathlon_top.php', 'Women');";
 
 			if (!$this->conn->query($sql)){
 				echo "Error inserting data : " . mysqli_error($this->conn);
