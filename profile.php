@@ -5,13 +5,11 @@ require_once ('dbcontroller.php');
 $database = new DBController();
 require_once("component.php");
 require_once("config.php");
-require_once("navbar.php");
-
 
 
 if(isset($_GET['logout']) && $_GET['logout'] == true){
 	destroy_session_and_data();
-	header("location:index.php");
+	echo "<script>window.location ='index.php'</script>";
 	exit;
 }
 
@@ -19,8 +17,8 @@ function destroy_session_and_data(){
     //session_start();
     //$_SESSION = array();
     
-    unset($_SESSION['username']);
-    unset($_SESSION['user_role_id']);
+    unset($_SESSION['username'], $_SESSION['user_role_id']);
+
     $_SESSION = array();
     session_unset();
     setcookie(session_name(), '', time() - 2592000, '/');
