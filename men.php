@@ -21,7 +21,7 @@ $db_handle = new DBController();
     <!-- All Products -->
     <section class="p-5">
         <div class="container text-center">
-            <h2 class="mb-4">Products</h2>   
+            <h2 class="mb-4">Men</h2>   
             <div class="d-flex flex-wrap justify-content-center">
             <?php
             $product_array = $db_handle->runQuery("SELECT * FROM `product_tb` WHERE product_category = 'Men' ORDER BY product_id");

@@ -29,7 +29,7 @@ cart();
     <!-- You may also like -->
     <section class="p-5 bg-light">
         <div class="container text-center">
-            <h2>You may also like</h2>   
+            <h2 class="mb-4">You may also like</h2>   
             <div class="d-flex flex-wrap justify-content-center">
                 <?php
                  $result = $db_handle->getData('A008');
