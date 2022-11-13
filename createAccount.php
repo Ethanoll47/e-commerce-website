@@ -1,6 +1,8 @@
 <?php
-require_once ('config.php');
+
 require_once ('dbcontroller.php');
+require_once("component.php");
+require_once ('config.php');
 
 $validation = "";
 
@@ -154,6 +156,9 @@ function data_validation($data, $data_pattern, $data_type){
 
 </form>
   
+  <?php
+  footer();
+  ?>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 

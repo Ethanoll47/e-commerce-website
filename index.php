@@ -1,11 +1,11 @@
 <?php // authenticate3.php
-session_start();
+session_start();		
 
 require_once ('dbcontroller.php');
+$database = new DBController();
 require_once("component.php");
 require_once("config.php");
 
-$database = new DBController();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -360,11 +360,10 @@ $database = new DBController();
         </div>
     </section>
 
-    <!-- Footer -->
     <?php
     footer();
     ?>
-
+    
     <!-- Modal -->
     <div class="modal fade" id="enroll" tabindex="-1" aria-labelledby="enrollLabel" aria-hidden="true">
         <div class="modal-dialog">
