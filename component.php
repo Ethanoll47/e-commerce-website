@@ -41,7 +41,10 @@ if (isset($_SESSION['username'])) {
                         <a href="index.php" class="nav-link text-light px-4 py-2">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="products.php" class="nav-link text-light px-4 py-2">Products</a>
+                        <a href="women.php" class="nav-link text-light px-4 py-2">Women</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="men.php" class="nav-link text-light px-4 py-2">Men</a>
                     </li>
                     <li class="nav-item">
                         <a href="about.php" class="nav-link text-light px-4 py-2">About Us</a>
