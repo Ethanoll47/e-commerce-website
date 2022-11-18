@@ -54,7 +54,7 @@ if (isset($_SESSION['username'])) {
                     if(isset($_SESSION['user_role_id'])){
                         if($_SESSION['user_role_id'] == 1){?>
                         <li class="nav-item">
-                            <a href="accounts.php" class="nav-link text-light px-4 py-2">Accounts</a>
+                            <a href="customers.php" class="nav-link text-light px-4 py-2">Customers</a>
                         </li>
                         <li class="nav-item">
                             <a href="orders.php" class="nav-link text-light px-4 py-2">Orders</a>
