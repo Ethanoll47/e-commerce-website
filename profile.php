@@ -33,8 +33,16 @@ if(isset($_GET['logout']) && $_GET['logout'] == true){
         $username = htmlspecialchars($_SESSION['username']);
         
         
-        echo "Welcome back $username.<br>
-        <button type='submit' class='btn btn-danger btn-lg' name='logout'><a href='profile.php?logout=true'>Logout</a></button>";
+        echo "
+        <section class='p-5'>
+            <div class='container text-center'>
+                <h2 class='mb-4'>Welome back $username</h2>   
+                <div class='d-flex flex-wrap justify-content-center'>
+                <button type='submit' class='btn btn-danger btn-lg' name='logout'><a href='profile.php?logout=true'>Logout</a></button>
+                </div>
+            </div>
+        </section>
+        ";
                
     }
     else echo "Please <a href='login.php'>Click Here</a> to log in.";
