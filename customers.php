@@ -16,6 +16,9 @@ require_once("php/component.php");
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css">
   
 <script>
 $(document).ready(function(){
@@ -25,7 +28,7 @@ $(document).ready(function(){
  function load_data(query1)
  {
   $.ajax({
-   url:"php/fetch.php",
+   url:"php/fetchCustomer.php",
    method:"POST",
    data:{query:query1},
    dataType:"json",
@@ -43,7 +46,10 @@ $(document).ready(function(){
       html += '<td>'+data[count].address+'</td>';
       html += '<td>'+data[count].postcode+'</td>';
       html += '<td>'+data[count].city+'</td>';
-      html += '<td>'+data[count].state+'</td></tr>';
+      html += '<td>'+data[count].state+'</td>';
+      html += "<td><button type='submit' class='btn btn-dark btn-lg mt-3 mb-3' name='edit' id='edit'>Edit</button></td>";
+      html += "<td><button type='submit' class='btn btn-dark btn-lg mt-3 mb-3' name='delete' id='delete'>Delete</button></td>";
+      html += '</tr>';
      }
     }
     else
@@ -104,6 +110,8 @@ $(document).ready(function(){
        <th>Postcode</th>
        <th>City</th>
        <th>State</th>
+       <th></th>
+       <th></th>
       </tr>
      </thead>
      <tbody>
@@ -117,5 +125,6 @@ $(document).ready(function(){
   <br />
   <br />
   <br />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
  </body>
 </html>
