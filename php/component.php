@@ -73,8 +73,40 @@ function footer(){
     echo "
     <footer class='p-5 bg-info text-white text-center mt-auto start-0 end-0'>
         <div class='container'>
-            <p class='lead'>Copyright &copy 2022 Company Name</p>
-            <a href='#' class='position-absolute bottom-0 end-0 p-5'><i class='bi bi-arrow-up-circle h1'></i></a>
+            <div class='row'>
+                <div class='col-md'>
+                    <h2>About Us</h2>
+                    <p class='about'>Thrifted in a Malaysia-based company that sells second hand clothing. We aim to provide customers with the best online shopping experience while also reducing the number of clothes that end up in landfills. Join us making the world a better and thriftier place. </p>
+                </div>
+                <div class='col-md'>
+                    <h2>Contact Us</h2>
+                    <ul class='list-unstyled'>
+                        <li>Email: Incase@gmail.com</li>
+                        <li>Phone: 010-0010-9980</li>
+                        <li>Fax: 010-0010-9980</li>
+                    </ul>
+                    <div>
+                        <a href='#'><i class='bi bi-facebook text-dark mx-1'></i></a>
+                        <a href='#'><i class='bi bi-instagram text-dark mx-1'></i></a>
+                        <a href='#'><i class='bi bi-twitter text-dark mx-1'></i></a>
+                        <a href='#'><i class='bi bi-linkedin text-dark mx-1'></i></a>
+                    </div>
+                </div>
+                <div class='col-md'>
+                    <form action='POST'>
+                        <h2>Newsletter</h2>
+                        <p>Subscribe to receive monthly promotions, latest updates, and more!</p>
+                        <div class='input-group news-input'>
+                            <input type='text' class='form-control' placeholder='Enter Email' aria-label='Recipient's username' aria-describedby='button-addon2'>
+                            <button class='btn btn-dark ' type='button' id='button-addon2'>Button</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+            <div class='mt-3'>
+                <p class='lead'>Copyright &copy 2022 Thrifted</p>
+            </div>
         </div>
     </footer>
     ";
