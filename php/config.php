@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db = 'thrift_db';
+$db = 'thrifted_db';
 $user = 'root';
 $pass = '';
 $attr = "mysql:host=$host;dbname=$db";

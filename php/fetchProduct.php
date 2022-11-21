@@ -1,6 +1,6 @@
 <?php
 
-$connect = new PDO("mysql:host=localhost;dbname=thrift_db", "root", "");
+$connect = new PDO("mysql:host=localhost;dbname=thrifted_db", "root", "");
 
 $output = '';
 
@@ -39,14 +39,13 @@ while($row = $statement->fetch(PDO::FETCH_ASSOC))
 
 $deleteQuery = "";
 
-$id = (isset($_POST['id']) ? $_POST['id'] : '');
+// $id = (isset($_GET['id']) ? $_GET['id'] : '');
 
-if(isset($_GET['delete']) && $_GET['delete'] == true){
-  $deleteQuery = "DELETE FROM `product_tb` WHERE product_id = '$id'";
-}
-
-$statement = $connect->prepare($deleteQuery);
-$statement->execute();
+// if(isset($_GET['delete']) && $_GET['delete'] == true){
+//   $deleteQuery = "DELETE FROM `product_tb` WHERE product_id = '$id'";
+//   $result = $connect->query($deleteQuery);
+//   return $result; 
+// }
 
 echo json_encode($data);
 ?>

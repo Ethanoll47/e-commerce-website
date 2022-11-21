@@ -1,6 +1,6 @@
 <?php
 
-$connect = new PDO("mysql:host=localhost;dbname=thrift_db", "root", "");
+$connect = new PDO("mysql:host=localhost;dbname=thrifted_db", "root", "");
 
 $output = '';
 
