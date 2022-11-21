@@ -1,10 +1,10 @@
 <?php // authenticate3.php
 session_start();		
 
-require_once ('dbcontroller.php');
+require_once ("php/dbcontroller.php");
 $database = new DBController();
-require_once("component.php");
-require_once("config.php");
+require_once("php/component.php");
+require_once("php/config.php");
 
 ?>
 <!DOCTYPE html>
@@ -363,7 +363,7 @@ require_once("config.php");
     <?php
     footer();
     ?>
-    
+
     <!-- Modal -->
     <div class="modal fade" id="enroll" tabindex="-1" aria-labelledby="enrollLabel" aria-hidden="true">
         <div class="modal-dialog">

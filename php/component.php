@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION['username'])) {
-    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5)) {
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) {
         destroy_session_and_data();
         
         echo "<script>alert('Session time out. You have been logged out.')</script>";
@@ -11,7 +11,7 @@ if (isset($_SESSION['username'])) {
 
 ?>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-info py-3 fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info py-3">
         <div class="container">
             <a href="index.php" class="navbar-brand order-lg-0 text-light pt-0"><i class="bi bi-recycle fs-4 text-light"></i> THRIFTED</a>
 
@@ -41,7 +41,10 @@ if (isset($_SESSION['username'])) {
                         <a href="index.php" class="nav-link text-light px-4 py-2">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="products.php" class="nav-link text-light px-4 py-2">Products</a>
+                        <a href="women.php" class="nav-link text-light px-4 py-2">Women</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="men.php" class="nav-link text-light px-4 py-2">Men</a>
                     </li>
                     <li class="nav-item">
                         <a href="about.php" class="nav-link text-light px-4 py-2">About Us</a>
@@ -51,10 +54,10 @@ if (isset($_SESSION['username'])) {
                     if(isset($_SESSION['user_role_id'])){
                         if($_SESSION['user_role_id'] == 1){?>
                         <li class="nav-item">
-                            <a href="accounts.php" class="nav-link text-light px-4 py-2">Accounts</a>
+                            <a href="customers.php" class="nav-link text-light px-4 py-2">Customers</a>
                         </li>
                         <li class="nav-item">
-                            <a href="orders.php" class="nav-link text-light px-4 py-2">Orders</a>
+                            <a href="products.php" class="nav-link text-light px-4 py-2">Products</a>
                         </li>
                         <?php
                         }

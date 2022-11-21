@@ -1,10 +1,10 @@
 <?php // authenticate3.php
 
-require_once ('dbcontroller.php');
+require_once ("php/dbcontroller.php");
 $database = new DBController();
 
-require_once ('component.php');
-require_once ('config.php');
+require_once ("php/component.php");
+require_once ("php/config.php");
 
 
 if(isset($_POST['email']) && isset($_POST['password'])){
@@ -15,7 +15,8 @@ if(isset($_POST['email']) && isset($_POST['password'])){
   $result  = $pdo->query($query);
   
   if (!$result->rowCount()) {
-    die("User not found");
+    echo "<script>alert('Invalid email/password.')</script>";
+    echo "<script>window.location = 'login.php'</script>";
   }
   
   $row = $result->fetch();

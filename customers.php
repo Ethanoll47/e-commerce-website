@@ -4,25 +4,15 @@ session_start();
 require_once ("php/dbcontroller.php");
 $database = new DBController();
 require_once("php/component.php");
-require_once("php/config.php");
 
-// $deleteQuery = "";
-// $id = (isset($_POST['id']) ? $_POST['id'] : '');
-
-// if(isset($_GET['delete']) && $_GET['delete'] == true){
-//   $deleteQuery = "DELETE FROM `product_tb` WHERE product_id = '$id'";
-//   $result = $pdo->query($deleteQuery);
-//   return $result;
-// }
 ?>
-
 <html>
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Thrifted</title>  
-  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput-typeahead.css" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput-typeahead.css" />
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" crossorigin="anonymous"></script>
@@ -38,7 +28,7 @@ $(document).ready(function(){
  function load_data(query1)
  {
   $.ajax({
-   url:"php/fetchProduct.php",
+   url:"php/fetchCustomer.php",
    method:"POST",
    data:{query:query1},
    dataType:"json",
@@ -50,21 +40,16 @@ $(document).ready(function(){
     {
      for(var count = 0; count < data.length; count++)
      {
-      html += "<form action='products.php' method='post'>";
       html += '<tr>';
-      html += "<td name='id'>"+data[count].product_id+"</td>";
-      html += '<td>'+data[count].product_brand+'</td>';
-      html += '<td>'+data[count].product_name+'</td>';
-      html += '<td>'+data[count].product_size+'</td>';
-      html += '<td>'+data[count].product_condition+'</td>';
-      html += '<td>'+data[count].product_price+'</td>';
-      html += '<td>'+data[count].product_color+'</td>';
-      html += '<td>'+data[count].product_material+'</td>';
-      html += '<td>'+data[count].product_category+'</td>';
+      html += '<td>'+data[count].first_name+'</td>';
+      html += '<td>'+data[count].last_name+'</td>';
+      html += '<td>'+data[count].address+'</td>';
+      html += '<td>'+data[count].postcode+'</td>';
+      html += '<td>'+data[count].city+'</td>';
+      html += '<td>'+data[count].state+'</td>';
       html += "<td><button type='submit' class='btn btn-dark btn-lg mt-3 mb-3' name='edit' id='edit'>Edit</button></td>";
-      html += "<td><button type='submit' class='btn btn-dark btn-lg mt-3 mb-3' name='delete' id='delete'><a href='products.php?delete=true'>Delete</button></td>";
+      html += "<td><button type='submit' class='btn btn-dark btn-lg mt-3 mb-3' name='delete' id='delete'>Delete</button></td>";
       html += '</tr>';
-      html += "</form>";
      }
     }
     else
@@ -100,7 +85,7 @@ $(document).ready(function(){
    <br />
    <br />
    <br />
-   <h2 align="center">Product List</h2><br />
+   <h2 align="center">Customer List</h2><br />
    <div class="form-group">
     <div class="row">
      <div class="col-md-10">
@@ -119,15 +104,12 @@ $(document).ready(function(){
     <table class="table table-bordered table-striped">
      <thead>
       <tr>
-       <th>ID</th>
-       <th>Brand</th>
-       <th>Name</th>
-       <th>Size</th>
-       <th>Condition</th>
-       <th>Price</th>
-       <th>Color</th>
-       <th>Material</th>
-       <th>Category</th>
+       <th>First Name</th>
+       <th>Last Name</th>
+       <th>Address</th>
+       <th>Postcode</th>
+       <th>City</th>
+       <th>State</th>
        <th></th>
        <th></th>
       </tr>
@@ -143,5 +125,6 @@ $(document).ready(function(){
   <br />
   <br />
   <br />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
  </body>
 </html>
