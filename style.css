@@ -36,6 +36,13 @@ body {
     width: 80%;
 }
 
+.collection {
+    max-width: 500px;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.15s ease;
+}
 .product {
     width: 20%;
     min-width: 280px;
@@ -44,12 +51,14 @@ body {
     transition: 0.15s ease;
 }
 
-.product:hover {
+
+
+.collection:hover, .product:hover {
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.2);
 
 }
 
-.product img {
+.collection img, .product img {
     border-radius: 20px;
 }
 
