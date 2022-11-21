@@ -76,12 +76,7 @@ table i:hover {
     color: red;
 }
 
-@media(min-width: 768px) {
-    .news-input{
-        width: 50%;
-    }   
-
-    .input-box{
-        width: 50%;
-    }
+.about {
+    text-align: justify;
+    text-justify: inter-word;
 }

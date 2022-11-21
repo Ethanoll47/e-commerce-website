@@ -11,45 +11,34 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
-        <div class="container">
-            <a href="#" class="navbar-brand order-lg-0">Company Name</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-info py-3 fixed-top">
+    <div class="container">
+        <a href="index.php" class="navbar-brand order-lg-0 text-light pt-0"><i class="bi bi-recycle fs-4 text-light"></i> THRIFTED</a>
 
             <div class="nav-buttons order-lg-2">
                 <button type="button" class="btn position-relative pt-0"><i class="bi bi-cart fs-4 text-secondary"></i></button>
-                 <!-- Only visible if not logged in -->
-                    <?php
-                    if(isset($_SESSION['username'])){?>
-                        <button type="button" class="btn position-relative pt-0"><a href="profile.php"></a><i class="bi bi-person-circle fs-4 text-secondary"></i></a></button>
-                    <?php
-                    }
-                    else {
-                    ?>
-                        <button type="button" class="btn position-relative pt-0 text-light"><a href="login.php"></a>Login</a></button>
-                    <?php
-                    }
-                    ?>
+                <button type="button" class="btn position-relative pt-0"><a href="login.html"></a><i class="bi bi-person-circle fs-4 text-secondary"></i></a></button>
             </div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse order-lg-1" id="navmenu">
-                <ul class="navbar-nav mx-auto text-center">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link px-4 py-2">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#products" class="nav-link px-4 py-2">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link px-4 py-2">About Us</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="collapse navbar-collapse order-lg-1" id="navmenu">
+            <ul class="navbar-nav mx-auto text-center">
+                <li class="nav-item">
+                    <a href="index.php" class="nav-link text-light px-4 py-2">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.php" class="nav-link text-light px-4 py-2">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.php" class="nav-link text-light px-4 py-2">About Us</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+  </nav>
     
     <!-- Carousel -->
     <div id="carousel" class="carousel slide" data-bs-ride="carousel">
@@ -501,10 +490,42 @@
     </section>
 
     <!-- Footer -->
-    <footer class="p-5 bg-info text-white text-center mt-auto">
+    <footer class="p-5 bg-info text-white text-center mt-auto start-0 end-0">
         <div class="container">
-            <p class="lead">Copyright &copy 2022 Company Name</p>
-            <a href="#" class="position-absolute bottom-0 end-0 pt-5"><i class="bi bi-arrow-up-circle h1"></i></a>
+            <div class="row">
+                <div class="col-md">
+                    <h2>About Us</h2>
+                    <p class="about">Thrifted in a Malaysia-based company that sells second hand clothing. We aim to provide customers with the best online shopping experience while also reducing the number of clothes that end up in landfills. Join us making the world a better and thriftier place. </p>
+                </div>
+                <div class="col-md">
+                    <h2>Contact Us</h2>
+                    <ul class="list-unstyled">
+                        <li>Email: Incase@gmail.com</li>
+                        <li>Phone: 010-0010-9980</li>
+                        <li>Fax: 010-0010-9980</li>
+                    </ul>
+                    <div>
+                        <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                        <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+                        <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                        <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <form action="POST">
+                        <h2>Newsletter</h2>
+                        <p>Subscribe to receive monthly promotions, latest updates, and more!</p>
+                        <div class="input-group news-input">
+                            <input type="text" class="form-control" placeholder="Enter Email" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-dark " type="button" id="button-addon2">Button</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+            <div class="mt-3">
+                <p class="lead">Copyright &copy 2022 Thrifted</p>
+            </div>
         </div>
     </footer>
 
