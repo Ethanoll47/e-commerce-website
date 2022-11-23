@@ -38,12 +38,11 @@ if(isset($_GET['logout']) && $_GET['logout'] == true){
             <div class='container text-center'>
                 <h2 class='mb-4'>Welome back $username</h2>   
                 <div class='d-flex flex-wrap justify-content-center'>
-                <button type='submit' class='btn btn-danger btn-lg' name='logout'><a href='profile.php?logout=true'>Logout</a></button>
+                <a href='profile.php?logout=true'><button type='submit' class='btn btn-danger btn-lg' name='logout'>Logout</button></a>
                 </div>
             </div>
         </section>
         ";
-               
     }
     else echo "Please <a href='login.php'>Click Here</a> to log in.";
     ?>
