@@ -20,7 +20,7 @@ cart();
 </head>
 <body>
     <?php
-    $result = $db_handle->getData('A001');
+    $result = $db_handle->getData('1');
     $row = $result->fetch();
     product($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_condition'], $row['product_price'], $row['product_color'], $row['product_material'], $row['product_image'], $row['product_id'], $row['product_page']);
     ?>
@@ -32,7 +32,7 @@ cart();
             <h2 class="mb-4">You May Also Like</h2>      
             <div class="d-flex flex-wrap justify-content-center">
                 <?php
-                 $result = $db_handle->getData('A003');
+                 $result = $db_handle->getData('3');
                  $row = $result->fetch();
                  productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
                 ?>
