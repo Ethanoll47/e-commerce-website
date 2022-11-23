@@ -7,6 +7,12 @@ require_once("php/component.php");
 $db_handle = new DBController();
 
 cart();
+
+if(isset($_GET['checkout']) && $_GET['checkout'] == true){
+	unset($_SESSION["cart_item"]);
+	echo "<script>window.location ='index.php'</script>";
+	exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +79,7 @@ cart();
                 </table>
             </div>
             <div class="d-flex justify-content-center justify-content-sm-end me-sm-4">
-                <button class="btn btn-info text-light btn-lg">Checkout</button>
+            <a href="cart.php?checkout=true"><button type="submit" class="btn btn-info text-light btn-lg" name="checkout">Checkout</button></a>
             </div>
         </div>
     </section>
