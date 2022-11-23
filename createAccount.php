@@ -49,8 +49,8 @@ if(isset($_POST['username']) && isset($_POST['password'])){
       }
       header("location:login.php");
     }
-    else{
-      echo $validation;}
+    // else{
+    //   echo $validation;}
 }
 
 function sanitise($pdo, $str)
@@ -101,12 +101,32 @@ function data_validation($data, $data_pattern, $data_type){
   
   
           <div class="form-floating mb-3 account-input overflow-hidden">
-            <input type="email" class="form-control" id="email" placeholder="Email Address" name="email">
+            <input type="email" class="form-control <?php if($validation!=""){?>is-invalid <?php } else{?> <?php } ?>" id="email" placeholder="Email Address" name="email" aria-describedby="validationEmail">
+            <?php
+            if($validation!=""){?>
+            <div id="validationEmail" class="invalid-feedback">
+                Invalid email address.
+            </div>
+            <?php
+            } else {?>
+              <?php
+            }
+            ?>
             <label for="email">Email address</label>
           </div>
   
           <div class="form-floating mb-3 account-input overflow-hidden">
-              <input type="number" class="form-control" id="phoneNumber" placeholder="Phone Number" name="phonenumber">
+              <input type="number" class="form-control <?php if($validation!=""){?>is-invalid <?php } else{?> <?php } ?>" id="phoneNumber" placeholder="Phone Number" name="phonenumber">
+              <?php
+              if($validation!=""){?>
+              <div id="validationEmail" class="invalid-feedback">
+                Invalid phone number.
+              </div>
+              <?php
+              } else {?>
+              <?php
+              }
+              ?>
               <label for="phoneNumber">Phone Number</label>
             </div>
   
@@ -118,7 +138,17 @@ function data_validation($data, $data_pattern, $data_type){
             </div>
   
           <div class="form-floating mb-3 account-input overflow-hidden">
-            <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+            <input type="password" class="form-control <?php if($validation!=""){?>is-invalid <?php } else{?> <?php } ?>" id="password" placeholder="Password" name="password">
+            <?php
+            if($validation!=""){?>
+            <div id="validationEmail" class="invalid-feedback">
+              Invalid password - at least one letter, at least one number, and there have to be 6-12 characters.
+            </div>
+            <?php
+            } else {?>
+            <?php
+            }
+            ?>
             <label for="password">Password</label>
           </div>
   
@@ -129,11 +159,22 @@ function data_validation($data, $data_pattern, $data_type){
       
           <div class="form-floating mb-3 account-input overflow-hidden">
             <input type="text" class="form-control" id="address" placeholder="Address" name="address">
+            
             <label for="address">Address</label>
           </div>
       
           <div class="form-floating mb-3 account-input overflow-hidden">
-            <input type="text" class="form-control" id="postcode" placeholder="Postcode" name="postcode">
+            <input type="text" class="form-control <?php if($validation!=""){?>is-invalid <?php } else{?> <?php } ?>" id="postcode" placeholder="Postcode" name="postcode">
+            <?php
+            if($validation!=""){?>
+            <div id="validationEmail" class="invalid-feedback">
+              Invalid postcode.
+            </div>
+            <?php
+            } else {?>
+            <?php
+            }
+            ?>
             <label for="postcode">Postcode</label>
           </div>
       
