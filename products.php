@@ -1,147 +1,200 @@
-<?php // authenticate3.php
-session_start();		
+<?php
 
-require_once ("php/dbcontroller.php");
-$database = new DBController();
+session_start();
+require_once("php/dbcontroller.php");
 require_once("php/component.php");
-require_once("php/config.php");
 
-// $deleteQuery = "";
-// $id = (isset($_POST['id']) ? $_POST['id'] : '');
+$db_handle = new DBController();
 
-// if(isset($_GET['delete']) && $_GET['delete'] == true){
-//   $deleteQuery = "DELETE FROM `product_tb` WHERE product_id = '$id'";
-//   $result = $pdo->query($deleteQuery);
-//   return $result;
-// }
+if (isset($_GET['edit'])) {
+	$id = $_GET['edit'];
+    $product = $db_handle->runQuery("SELECT * FROM `product_tb` WHERE product_id = '$id'");
+
+	if (count($product) == 1 ) {
+        foreach($product as $key=>$value){  
+		//$n = mysqli_fetch_array($record);
+        // $n = $record->fetch();
+            $brand = $product[$key]['product_brand'];
+            $name = $product[$key]['product_name'];
+            $size = $product[$key]['product_size'];
+            $condition = $product[$key]['product_condition'];
+            $price = $product[$key]['product_price'];
+            $color = $product[$key]['product_color'];
+            $material = $product[$key]['product_material'];
+            $category = $product[$key]['product_category'];
+        }
+        
+        echo ' <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#edit").modal("show");
+            });
+            </script>';
+        
+
+        // echo "<script>
+        //     document.getElementById('edit1').modal('show');
+        //     </script>";
+	}
+}
+
+
+if (isset($_POST['update'])) {
+	$id = $_POST['id'];
+	$brand = $_POST['brand'];
+	$name = $_POST['name'];
+	$size = $_POST['size'];
+    $condition = $_POST['condition'];
+    $price = $_POST['price'];
+    $color = $_POST['color'];
+    $material = $_POST['material'];
+    $category = $_POST['category'];
+
+    $db_handle->runQuery("UPDATE `product_tb` SET product_brand='$brand', product_name='$name', product_size='$size', 
+    product_condition='$condition', product_price='$price', product_color='$color', product_material='$material', product_category='$category'  WHERE product_id='$id'");
+}
+
+if (isset($_GET['delete'])) {
+	$id = $_GET['delete'];
+    $db_handle->runQuery("DELETE FROM `product_tb` WHERE product_id = '$id'");
+}
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Company Name</title>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+            $(document).ready(function() {
+                $("#edit1").modal("show");
+            });
+    </script> -->
+</head>
+<body>
+    <!-- All Products -->
+    <section class="p-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Product List</h2>   
+            <div class="d-flex flex-wrap justify-content-center">
+            <table>
+                <thead>
+                    <tr>
+                    <th>Brand</th>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Condition</th>
+                    <th>Price</th>
+                    <th>Color</th>
+                    <th>Material</th>
+                    <th>Category</th>
+                    <th colspan="2">Action</th>
+                    </tr>
+                </thead>
+                
+                <?php 
+                $product_array = $db_handle->runQuery("SELECT * FROM `product_tb` ORDER BY product_id");
+                if (!empty($product_array)) {
+                    foreach($product_array as $key=>$value){  
+                ?>
+                    <tr>
+                        <td><?php echo $product_array[$key]["product_brand"]; ?></td>
+                        <td><?php echo $product_array[$key]["product_name"]; ?></td>
+                        <td><?php echo $product_array[$key]["product_size"]; ?></td>
+                        <td><?php echo $product_array[$key]["product_condition"]; ?></td>
+                        <td><?php echo $product_array[$key]["product_price"]; ?></td>
+                        <td><?php echo $product_array[$key]["product_color"]; ?></td>
+                        <td><?php echo $product_array[$key]["product_material"]; ?></td>
+                        <td><?php echo $product_array[$key]["product_category"]; ?></td>
+                        <td>
+                            <!-- class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit" -->
+                            <a href="products.php?edit=<?php echo $product_array[$key]["product_id"]; ?>" class="text-primary">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            
+                        </td>
+                        <td>
+                            <a href="products.php?delete=<?php echo $product_array[$key]["product_id"]; ?>" class="text-danger"><i class="bi bi-trash-fill"></i></a>
+                        </td>
+                    </tr>
+                <?php
+                    } 
+                } 
+                ?>
+            </table>
+            </div>
+        </div>
+    </section>
+    
 
-<html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Thrifted</title>  
-  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput-typeahead.css" /> -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="style.css">
-  
-<script>
-$(document).ready(function(){
- 
- load_data();
-
- function load_data(query1)
- {
-  $.ajax({
-   url:"php/fetchProduct.php",
-   method:"POST",
-   data:{query:query1},
-   dataType:"json",
-   success:function(data)
-   {
-    $('#total_records').text(data.length);
-    var html = '';
-    if(data.length > 0)
-    {
-     for(var count = 0; count < data.length; count++)
-     {
-      html += "<form action='products.php' method='post'>";
-      html += '<tr>';
-      html += "<td name='id'>"+data[count].product_id+"</td>";
-      html += '<td>'+data[count].product_brand+'</td>';
-      html += '<td>'+data[count].product_name+'</td>';
-      html += '<td>'+data[count].product_size+'</td>';
-      html += '<td>'+data[count].product_condition+'</td>';
-      html += '<td>'+data[count].product_price+'</td>';
-      html += '<td>'+data[count].product_color+'</td>';
-      html += '<td>'+data[count].product_material+'</td>';
-      html += '<td>'+data[count].product_category+'</td>';
-      html += "<td><button type='submit' class='btn btn-dark btn-lg mt-3 mb-3' name='edit' id='edit'>Edit</button></td>";
-      html += "<td><button type='submit' class='btn btn-dark btn-lg mt-3 mb-3' name='delete' id='delete'><a href='products.php?delete=true'>Delete</button></td>";
-      html += '</tr>';
-      html += "</form>";
-     }
-    }
-    else
-    {
-     html = '<tr><td colspan="5">No Data Found</td></tr>';
-    }
-    $('tbody').html(html);
-   }
-  })
- }
-
-  $('#search').click(function(){
-    var query1 = $('#tags').val();
-    load_data(query1);
-  });
-
-  $("#tags").change(function(){
-    var query1 = $('#tags').val();
-    load_data(query1);
-  });
-
-});
-</script>
-  
-  <style>
-  .bootstrap-tagsinput {
-   width: 100%;
-  }
-  </style>
- </head>
- <body>
-  <div class="container">
-   <br />
-   <br />
-   <br />
-   <h2 align="center">Product List</h2><br />
-   <div class="form-group">
-    <div class="row">
-     <div class="col-md-10">
-      <input type="text" id="tags" class="form-control" data-role="tagsinput" />
-     </div>
-     <div class="col-md-2">
-      <button type="button" name="search" class="btn btn-primary" id="search">Search</button>
-     </div>
+<!-- Modal -->
+<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="editLabel">Edit Product</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="products.php" >
+                    <div class="mb-3">
+                        <label for="brand" class="col-form-label">Brand:</label>
+                        <input type="text" class="form-control" id="brand" name="brand" value="<?php echo $brand; ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $name; ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="size" class="col-form-label">Size:</label>
+                        <input type="text" class="form-control" id="size" name="size" value="<?php echo $size; ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="condition" class="col-form-label">Condition:</label>
+                        <input type="text" class="form-control" id="condition" name="condition" value="<?php echo $condition; ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="col-form-label">Price:</label>
+                        <input type="text" class="form-control" id="price" name="price" value="<?php echo $price; ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="color" class="col-form-label">Color:</label>
+                        <input type="text" class="form-control" id="color" name="color" value="<?php echo $color; ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="material" class="col-form-label">Material:</label>
+                        <input type="text" class="form-control" id="material" name="material" value="<?php echo $material; ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="category" class="col-form-label">Category:</label>
+                        <input type="text" class="form-control" id="category" name="category" value="<?php echo $category; ?>">
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" name="update" class="btn btn-primary">Update</button>
+                    </div>
+                    
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                </form>
+            </div>
+            
+        </div>
+        </div>
     </div>
-   </div>
-   <br />
-   <div class="table-responsive">
-    <div align="right">
-     <p><b>Total Records - <span id="total_records"></span></b></p>
-    </div>
-    <table class="table table-bordered table-striped">
-     <thead>
-      <tr>
-       <th>ID</th>
-       <th>Brand</th>
-       <th>Name</th>
-       <th>Size</th>
-       <th>Condition</th>
-       <th>Price</th>
-       <th>Color</th>
-       <th>Material</th>
-       <th>Category</th>
-       <th></th>
-       <th></th>
-      </tr>
-     </thead>
-     <tbody>
-     </tbody>
-    </table>
-   </div>
-  </div>
-  <div style="clear:both"></div>
-  <br />
-  
-  <br />
-  <br />
-  <br />
- </body>
+
+
+
+    <?php
+    footer();
+    
+    ?>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
 </html>
