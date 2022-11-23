@@ -27,7 +27,7 @@ if (isset($_GET['edit'])) {
         echo ' <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $("#edit").modal("show");
+                $("#editProduct").modal("show");
             });
             </script>';
         
@@ -133,11 +133,11 @@ if (isset($_GET['delete'])) {
     
 
 <!-- Modal -->
-<div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+<div class="modal fade" id="editProduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="editLabel">Edit Product</h5>
+            <h5 class="modal-title" id="editProductLabel">Edit Product</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
