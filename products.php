@@ -81,19 +81,19 @@ if (isset($_GET['delete'])) {
     <section class="p-5">
         <div class="container text-center">
             <h2 class="mb-4">Product List</h2>   
-            <div class="d-flex flex-wrap justify-content-center">
-            <table>
-                <thead>
+            <div class="table-responsive">
+            <table class="table align-middle">
+                <thead class="table-light">
                     <tr>
-                    <th>Brand</th>
-                    <th>Name</th>
-                    <th>Size</th>
-                    <th>Condition</th>
-                    <th>Price</th>
-                    <th>Color</th>
-                    <th>Material</th>
-                    <th>Category</th>
-                    <th colspan="2">Action</th>
+                      <th>Brand</th>
+                      <th>Name</th>
+                      <th>Size</th>
+                      <th>Condition</th>
+                      <th>Price</th>
+                      <th>Color</th>
+                      <th>Material</th>
+                      <th>Category</th>
+                      <th colspan="2"></th>
                     </tr>
                 </thead>
                 
@@ -133,7 +133,7 @@ if (isset($_GET['delete'])) {
     
 
 <!-- Modal -->
-<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+<div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
