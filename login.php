@@ -6,6 +6,7 @@ $database = new DBController();
 require_once ("php/component.php");
 require_once ("php/config.php");
 
+$pw = "";
 
 if(isset($_POST['email']) && isset($_POST['password'])){
     
@@ -15,16 +16,16 @@ if(isset($_POST['email']) && isset($_POST['password'])){
   $result  = $pdo->query($query);
   
   if (!$result->rowCount()) {
-    echo "<script>alert('Invalid email/password.')</script>";
-    echo "<script>window.location = 'login.php'</script>";
-  }
-  
+    $errorMsg = "Invalid email or password";
+
+  } else {
   $row = $result->fetch();
   $fn  = $row['first_name'];
   $un  = $row['username'];
   $pw  = $row['password'];
   $user_role_id = $row['user_role_id'];
-  
+  }
+
   //if (password_verify(str_replace("'", "", $pw_temp), $pw))
   if (password_verify( $password_temp, $pw))
   {
@@ -36,7 +37,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
       echo "<script>window.location ='index.php'</script>";
   }
   else {
-    echo("Invalid email/password combination");
+    $errorMsg = "Invalid email or password";
   }
 }
 
@@ -63,6 +64,14 @@ function sanitise($pdo, $str)
     <div class="container">
       <div class="d-flex flex-column justify-content-center align-items-center mb-3">
         <h1 class="m-4 text-center">Log In</h1>
+
+        <?php
+        if(isset($errorMsg)){
+        echo "<div class='alert alert-danger' role='alert'>";
+        echo $errorMsg;
+        echo "</div>";
+        }
+        ?>
 
         <div class="form-floating mb-3 input-box">
           <input type="text" class="form-control" id="floatingInput" placeholder="Email Address" name="email">
