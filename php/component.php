@@ -25,7 +25,7 @@ if (isset($_SESSION['username'])) {
                     }
                     else {
                     ?>
-                        <button type="button" class="btn position-relative text-light pt-0 pb-1"><a href="login.php">Login</a></button>
+                        <button type="button" class="btn position-relative text-light pt-0 pb-1"><a href="login.php" class="text-light">Login</a></button>
                     <?php
                     }
                     ?>

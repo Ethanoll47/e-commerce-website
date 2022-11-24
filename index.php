@@ -46,315 +46,125 @@ require_once("php/config.php");
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      
-    <!-- Showcase -->
-    <section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+
+    <!-- Featured -->
+    <section class="p-5">
+        <div class="container text-center">
+            <h2>Featured Product</h2>   
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="card product m-3" onclick="window.location.href='product.html';">
+                    <img src="images/adidas_jacket.jpg" alt="">
+                    <div class="card-body">
+                        <span>Adidas</span>
+                        <h5>Sports Jacket &#x2022 Medium</h5>
+                        <h5>RM10</h5>
+                    </div>
+                </div>
+
+                <div class="card product m-3" onclick="window.location.href='product.html';">
+                    <img src="images/adidas_jacket.jpg" alt="">
+                    <div class="card-body">
+                        <span>Adidas</span>
+                        <h5>Sports Jacket &#x2022 Medium</h5>
+                        <h5>RM10</h5>
+                    </div>
+                </div>
+
+                <div class="card product m-3" onclick="window.location.href='product.html';">
+                    <img src="images/adidas_jacket.jpg" alt="">
+                    <div class="card-body">
+                        <span>Adidas</span>
+                        <h5>Sports Jacket &#x2022 Medium</h5>
+                        <h5>RM10</h5>
+                    </div>
+                </div>
+
+                <div class="card product m-3" onclick="window.location.href='product.html';">
+                    <img src="images/adidas_jacket.jpg" alt="">
+                    <div class="card-body">
+                        <span>Adidas</span>
+                        <h5>Sports Jacket &#x2022 Medium</h5>
+                        <h5>RM10</h5>
+                    </div>
+                </div>
+
+                <div class="card product m-3" onclick="window.location.href='product.html';">
+                    <img src="images/adidas_jacket.jpg" alt="">
+                    <div class="card-body">
+                        <span>Adidas</span>
+                        <h5>Sports Jacket &#x2022 Medium</h5>
+                        <h5>RM10</h5>
+                    </div>
+                </div>
+
+                <div class="card product m-3" onclick="window.location.href='product.html';">
+                    <img src="images/adidas_jacket.jpg" alt="">
+                    <div class="card-body">
+                        <span>Adidas</span>
+                        <h5>Sports Jacket &#x2022 Medium</h5>
+                        <h5>RM10</h5>
+                    </div>
+                </div>
+
+                <div class="card product m-3" onclick="window.location.href='product.html';">
+                    <img src="images/adidas_jacket.jpg" alt="">
+                    <div class="card-body">
+                        <span>Adidas</span>
+                        <h5>Sports Jacket &#x2022 Medium</h5>
+                        <h5>RM10</h5>
+                    </div>
+                </div>
+
+                <div class="card product m-3" onclick="window.location.href='product.html';">
+                    <img src="images/adidas_jacket.jpg" alt="">
+                    <div class="card-body">
+                        <span>Adidas</span>
+                        <h5>Sports Jacket &#x2022 Medium</h5>
+                        <h5>RM10</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="bg-dark text-light p-5 text-center" style="background-image:url('images/clothes.png'); width: 100%;  background-size: cover; background-position: center;">
         <div class="container">
-            <div class="d-sm-flex align-items-center justify-content-between">
+            <div class="d-sm-flex align-items-center justify-content-between bg-image">
                 <div>
-                    <h1>Become a <span class="text-warning">Web Developer</span></h1>
-                    <p class="lead my-4">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                    <h1>Making the World a Thriftier Place</h1>
+                    <p class="lead mx-5 my-4">
+                    With the fashion industry being one of the world's leading environmental threats, we believe thrifting is the key in helping reduce clothes that end up in landfills.
                     </p>
-                    <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#enroll">Button</button>
-                </div>
-                <img class="img-fluid w-50 d-none d-sm-block" src="img/showcase.svg" alt="">
-            </div>
-        </div>
-    </section>
-    
-    <!-- Newsletter -->
-    <section class="bg-primary text-light p-5">
-        <div class="container">
-            <div class="d-md-flex justify-content-between align-items-center">
-                <h3 class="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
-                <div class="input-group news-input">
-                    <input type="text" class="form-control" placeholder="Enter Email" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-dark btn-lg" type="button" id="button-addon2">Button</button>
+                    <button class="btn btn-info btn-lg text-light" onclick="window.location.href='about.php';">Learn About Us</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Boxes -->
+    <!-- Category -->
     <section class="p-5">
-        <div class="container">
-            <div class="row text-center g-4">
-                <div class="col-md">
-                    <div class="card bg-dark text-light">
-                        <div class="card-body text-center">
-                            <div class="h1 mb-3">
-                                <i class="bi bi-laptop"></i>
-                            </div>
-                            <h3 class="card-title mb-3">
-                                Virtual
-                            </h3>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae alias odio eius, rerum dolorum quisquam.
-                            </p>
-                            <a href="#" class="btn btn-primary">Read More</a>
+        <div class="container text-center">
+            <h2 class="mb-4">Shop by Category</h2>   
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="card collection m-3" onclick="window.location.href='men.php';">
+                    <img src="images/menswear.jpg" alt="">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h5>Men</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-md">
-                    <div class="card bg-secondary text-light">
-                        <div class="card-body text-center">
-                            <div class="h1 mb-3">
-                                <i class="bi bi-person-square"></i>
-                            </div>
-                            <h3 class="card-title mb-3">
-                                Hybrid
-                            </h3>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae alias odio eius, rerum dolorum quisquam.
-                            </p>
-                            <a href="#" class="btn btn-dark">Read More</a>
+                
+                <div class="card collection m-3" onclick="window.location.href='men.php';">
+                    <img src="images/womenswear.jpg" alt="">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h5>Women</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-md">
-                    <div class="card bg-dark text-light">
-                        <div class="card-body text-center">
-                            <div class="h1 mb-3">
-                                <i class="bi bi-people"></i>
-                            </div>
-                            <h3 class="card-title mb-3">
-                                In Person
-                            </h3>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae alias odio eius, rerum dolorum quisquam.
-                            </p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Learn Section -->
-    <section id="products" class="p-5">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-md">
-                    <img src="img/fundamentals.svg" alt="" class="img-fluid">
-                </div>
-                <div class="col-md p-5">
-                    <h2>Learn The Fundamentals</h2>
-                    <p class="lead">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nisi dignissimos quisquam? Corporis, aliquam nisi!
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo deleniti iure mollitia, assumenda dolor sequi?
-                    </p>
-                    <a href="#" class="btn btn-light mt-3">
-                        <i class="bi bi-chevron-right"></i>Read More
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="p-5 bg-dark text-light">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-md p-5">
-                    <h2>Learn React</h2>
-                    <p class="lead">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nisi dignissimos quisquam? Corporis, aliquam nisi!
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo deleniti iure mollitia, assumenda dolor sequi?
-                    </p>
-                    <a href="#" class="btn btn-light mt-3">
-                        <i class="bi bi-chevron-right"></i>Read More
-                    </a>
-                </div>
-                <div class="col-md">
-                    <img src="img/react.svg" alt="" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Question Accordion -->
-    <section id="questions" class="p-5">
-        <div class="container">
-            <h2 class="text-center mb-4">
-                Frequently Asked Questions
-            </h2>
-            <div class="accordion accordion-flush" id="questions">
-                <!-- Item 1 -->
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-one" aria-expanded="false" aria-controls="flush-collapseOne">
-                      Accordion Item #1
-                    </button>
-                  </h2>
-                  <div id="question-one" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#questions">
-                    <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus nam porro totam, dolores sequi doloremque distinctio doloribus beatae veniam, deserunt, ad cupiditate tempore ab nostrum. Velit aperiam eaque alias molestias esse accusantium, neque voluptates, corporis eum deserunt rem asperiores? Sit.
-                    </div>
-                  </div>
-                </div>
-                <!-- Item 2 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-two" aria-expanded="false" aria-controls="flush-collapseOne">
-                        Accordion Item #2
-                      </button>
-                    </h2>
-                    <div id="question-two" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#questions">
-                      <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus nam porro totam, dolores sequi doloremque distinctio doloribus beatae veniam, deserunt, ad cupiditate tempore ab nostrum. Velit aperiam eaque alias molestias esse accusantium, neque voluptates, corporis eum deserunt rem asperiores? Sit.
-                      </div>
-                    </div>
-                  </div>
-                <!-- Item 3 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-three" aria-expanded="false" aria-controls="flush-collapseOne">
-                        Accordion Item #3
-                      </button>
-                    </h2>
-                    <div id="question-three" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#questions">
-                      <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus nam porro totam, dolores sequi doloremque distinctio doloribus beatae veniam, deserunt, ad cupiditate tempore ab nostrum. Velit aperiam eaque alias molestias esse accusantium, neque voluptates, corporis eum deserunt rem asperiores? Sit.
-                      </div>
-                    </div>
-                  </div>
-                <!-- Item 4 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-four" aria-expanded="false" aria-controls="flush-collapseOne">
-                        Accordion Item #4
-                      </button>
-                    </h2>
-                    <div id="question-four" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#questions">
-                      <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus nam porro totam, dolores sequi doloremque distinctio doloribus beatae veniam, deserunt, ad cupiditate tempore ab nostrum. Velit aperiam eaque alias molestias esse accusantium, neque voluptates, corporis eum deserunt rem asperiores? Sit.
-                      </div>
-                    </div>
-                  </div>
-              </div>
-        </div>
-    </section>
-
-    <section id="instructors" class="p-5 bg-primary">
-        <div class="container">
-            <h2 class="text-center text-white">
-                Our Instructors
-            </h2>
-            <p class="lead text-center text-white mb-5">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, consequatur!
-            </p>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="card bg-light">
-                        <div class="card-body text-center">
-                            <img src="https://randomuser.me/api/portraits/men/29.jpg" class="rounded-circle mb-3" alt="">
-                            <h3 class="card-title mb-3">
-                                John Doe
-                            </h3>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. A accusantium dolore tenetur quam, et minima!
-                            </p>
-                            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
-                            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
-                            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-                            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="card bg-light">
-                        <div class="card-body text-center">
-                            <img src="https://randomuser.me/api/portraits/women/29.jpg" class="rounded-circle mb-3" alt="">
-                            <h3 class="card-title mb-3">
-                                Jane Doe
-                            </h3>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. A accusantium dolore tenetur quam, et minima!
-                            </p>
-                            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
-                            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
-                            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-                            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="card bg-light">
-                        <div class="card-body text-center">
-                            <img src="https://randomuser.me/api/portraits/men/10.jpg" class="rounded-circle mb-3" alt="">
-                            <h3 class="card-title mb-3">
-                                Steve Gomez
-                            </h3>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. A accusantium dolore tenetur quam, et minima!
-                            </p>
-                            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
-                            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
-                            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-                            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="card bg-light">
-                        <div class="card-body text-center">
-                            <img src="https://randomuser.me/api/portraits/women/2.jpg" class="rounded-circle mb-3" alt="">
-                            <h3 class="card-title mb-3">
-                                Lisa Smith
-                            </h3>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. A accusantium dolore tenetur quam, et minima!
-                            </p>
-                            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
-                            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
-                            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-                            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact & Map -->
-    <section class="p-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md">
-                    <h2 class="text-center mb-4">
-                        Contact Info
-                    </h2>
-                    <ul class="list-group list-group-flush lead">
-                        <li class="list-group-item">
-                            <span class="fw-bold">
-                                Main Location:
-                            </span>
-                            50 Main Street Boston MA
-                        </li>
-                        <li class="list-group-item">
-                            <span class="fw-bold">
-                                Phone Number:
-                            </span>
-                            012-4432521
-                        </li>
-                        <li class="list-group-item">
-                            <span class="fw-bold">
-                                Email:
-                            </span>
-                            companyname@gmail.com
-                        </li>
-                        <li class="list-group-item">
-                            <span class="fw-bold">
-                                Main Location:
-                            </span>
-                            50 Main Street Boston MA
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md">
-                    <div id="map"><img src="images/map.svg" alt=""></div>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -362,43 +172,6 @@ require_once("php/config.php");
     <?php
     footer();
     ?>
-
-    <!-- Modal -->
-    <div class="modal fade" id="enroll" tabindex="-1" aria-labelledby="enrollLabel" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p class="lead">Fill out this form and we will get back to you</p>
-                <form>
-                    <div class="mb-3">
-                        <label for="first-name" class="col-form-label">First Name:</label>
-                        <input type="text" class="form-control" id="first-name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="last-name" class="col-form-label">Last Name:</label>
-                        <input type="text" class="form-control" id="last-name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="col-form-label">Email:</label>
-                        <input type="text" class="form-control" id="email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone" class="col-form-label">Phone:</label>
-                        <input type="text" class="form-control" id="phone">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-        </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
