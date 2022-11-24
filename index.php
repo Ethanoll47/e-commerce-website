@@ -54,19 +54,19 @@ require_once("php/config.php");
             <h2 class="mb-4">Featured Products</h2>   
             <div class="d-flex flex-wrap justify-content-center">
                 <?php
-                 $result = $db_handle->getData('1');
+                 $result = $db_handle->getData('A001');
                  $row = $result->fetch();
                  productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
               
-                 $result = $db_handle->getData('2');
+                 $result = $db_handle->getData('A002');
                  $row = $result->fetch();
                  productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
              
-                 $result = $db_handle->getData('3');
+                 $result = $db_handle->getData('A003');
                  $row = $result->fetch();
                  productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
            
-                 $result = $db_handle->getData('4');
+                 $result = $db_handle->getData('A004');
                  $row = $result->fetch();
                  productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
                 ?>

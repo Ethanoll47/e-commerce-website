@@ -18,7 +18,7 @@ $db_handle = new DBController();
     <title>Company Name</title>
 </head>
 <body>
-    <!-- All Products -->
+    <!-- Display all women clothing -->
     <section class="p-5">
         <div class="container text-center">
             <h2 class="mb-4">Women</h2>   

@@ -10,6 +10,7 @@ cart();
 
 if(isset($_GET['checkout']) && $_GET['checkout'] == true){
 	unset($_SESSION["cart_item"]);
+    echo "<script>alert('Order Success! Thank you for shopping with us.')</script>";
 	echo "<script>window.location ='index.php'</script>";
 	exit;
 }

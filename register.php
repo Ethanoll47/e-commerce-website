@@ -7,13 +7,16 @@ require_once("php/config.php");
 //Create array validation error messages
 $validation = array("email" => "", "phonenumber" => "", "password" => "", "postcode" => "");
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
-
-  try {
-    $pdo = new PDO($attr, $user, $pass, $opts);
-  } catch (\PDOException $e) {
-    throw new \PDOException($e->getMessage(), (int)$e->getCode());
-  }
+if(isset($_POST['register'])){
+  
+    try
+    {
+        $pdo = new PDO($attr, $user, $pass, $opts);
+    }
+    catch (\PDOException $e)
+    {
+        throw new \PDOException($e->getMessage(), (int)$e->getCode());
+    }
 
   $table = 'user_tb';
   $firstname = sanitise($pdo, $_POST['firstname']);
