@@ -85,7 +85,7 @@ function sanitise($pdo, $str)
 
         <button type="submit" class="btn btn-dark btn-lg mt-3 mb-3" name="login" id="login">Log In</button>
         <div>
-          Don't have an account? <a href="createAccount.php">Sign Up Now</a>
+          Don't have an account? <a href="register.php">Sign Up Now</a>
         </div>
       </div>
     </div>

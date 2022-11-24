@@ -4,7 +4,7 @@ require_once ("php/dbcontroller.php");
 require_once("php/component.php");
 require_once ("php/config.php");
 
-$validation = "";
+$validation = array("email" => "", "phonenumber" => "", "password" => "", "postcode" => "");
 
 if(isset($_POST['username']) && isset($_POST['password'])){
 
@@ -30,27 +30,26 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $city = sanitise($pdo, $_POST['city']);
     $state = sanitise($pdo, $_POST['state']);
     
-    //data validation
-	
-    $validation .= data_validation($_POST['email'],  "/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/" , "email");
-    $validation .= data_validation($_POST['phonenumber'],  "/^(01)[0-46-9]*[0-9]{7,8}$/" , "phonenumber");
-    $validation .= data_validation($_POST['password'], '/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{6,12}$/', "password- at least one letter, at least one number, and there have to be 6-12 characters");
-    $validation .= data_validation($_POST['postcode'],  "/^\d{5}$/" , "postcode");
+    //Data validation
+    $validation["email"] = data_validation($_POST['email'],  "/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/" , "Invalid Email Address");
+    $validation["phonenumber"] = data_validation($_POST['phonenumber'],  "/^(01)[0-46-9]*[0-9]{7,8}$/" , "Invalid Phone Number");
+    $validation["password"] = data_validation($_POST['password'], '/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{6,12}$/', "Invalid Password - At least one letter, at least one number, and it must be 6-12 characters long");
+    $validation["postcode"] = data_validation($_POST['postcode'],  "/^\d{5}$/" , "Invalid Postcode");
 
-    if ($validation== ""){
+    //If data is valid
+    if (($validation["email"] == "") && ($validation["phonenumber"] == "") && ($validation["password"] == "") && ($validation["postcode"] == "")){
       $query = "INSERT INTO $table (user_id, first_name, last_name, email, phone_number, username, password, address, postcode, city, state)
         VALUES(NULL,$firstname, $lastname, $email, $phonenumber, $username, '$password', $address, $postcode, $city, $state)";
-      //dob datetime format = 2013-02-02 10:13:20
       
       $result = $pdo->query($query);
       
       if (! $result){
           die('Error: ' . mysqli_error());
       }
+
+      //Return to login page
       header("location:login.php");
     }
-    // else{
-    //   echo $validation;}
 }
 
 function sanitise($pdo, $str)
@@ -59,11 +58,12 @@ function sanitise($pdo, $str)
     return $pdo->quote($str);
 }
 
+//Function for data validation
 function data_validation($data, $data_pattern, $data_type){
 	if (preg_match($data_pattern, $data)) {
 		return "";
 	} else { 
-		return " Invalid data for " .  $data_type . ";";
+		return $data_type;
 	}   
 }    	
 ?>
@@ -101,11 +101,11 @@ function data_validation($data, $data_pattern, $data_type){
   
   
           <div class="form-floating mb-3 account-input overflow-hidden">
-            <input type="email" class="form-control <?php if($validation!=""){?>is-invalid <?php } else{?> <?php } ?>" id="email" placeholder="Email Address" name="email" aria-describedby="validationEmail">
+            <input type="text" class="form-control <?php if($validation["email"] !=""){?>is-invalid <?php } else{?> <?php } ?>" id="email" placeholder="Email Address" name="email">
             <?php
-            if($validation!=""){?>
-            <div id="validationEmail" class="invalid-feedback">
-                Invalid email address.
+            if($validation["email"] !=""){?>
+            <div class="invalid-feedback">
+                <?php echo $validation["email"] ?>
             </div>
             <?php
             } else {?>
@@ -116,11 +116,11 @@ function data_validation($data, $data_pattern, $data_type){
           </div>
   
           <div class="form-floating mb-3 account-input overflow-hidden">
-              <input type="number" class="form-control <?php if($validation!=""){?>is-invalid <?php } else{?> <?php } ?>" id="phoneNumber" placeholder="Phone Number" name="phonenumber">
+              <input type="text" class="form-control <?php if($validation["phonenumber"] !=""){?>is-invalid <?php } else{?> <?php } ?>" id="phoneNumber" placeholder="Phone Number" name="phonenumber">
               <?php
-              if($validation!=""){?>
-              <div id="validationEmail" class="invalid-feedback">
-                Invalid phone number.
+              if($validation["phonenumber"] !=""){?>
+              <div class="invalid-feedback">
+                <?php echo $validation["phonenumber"] ?>
               </div>
               <?php
               } else {?>
@@ -138,11 +138,11 @@ function data_validation($data, $data_pattern, $data_type){
             </div>
   
           <div class="form-floating mb-3 account-input overflow-hidden">
-            <input type="password" class="form-control <?php if($validation!=""){?>is-invalid <?php } else{?> <?php } ?>" id="password" placeholder="Password" name="password">
+            <input type="password" class="form-control <?php if($validation["password"] !=""){?>is-invalid <?php } else{?> <?php } ?>" id="password" placeholder="Password" name="password">
             <?php
-            if($validation!=""){?>
-            <div id="validationEmail" class="invalid-feedback">
-              Invalid password - at least one letter, at least one number, and there have to be 6-12 characters.
+            if($validation["password"] !=""){?>
+            <div class="invalid-feedback">
+              <?php echo $validation["password"] ?>
             </div>
             <?php
             } else {?>
@@ -164,11 +164,11 @@ function data_validation($data, $data_pattern, $data_type){
           </div>
       
           <div class="form-floating mb-3 account-input overflow-hidden">
-            <input type="text" class="form-control <?php if($validation!=""){?>is-invalid <?php } else{?> <?php } ?>" id="postcode" placeholder="Postcode" name="postcode">
+            <input type="text" class="form-control <?php if($validation["postcode"] !=""){?>is-invalid <?php } else{?> <?php } ?>" id="postcode" placeholder="Postcode" name="postcode">
             <?php
-            if($validation!=""){?>
-            <div id="validationEmail" class="invalid-feedback">
-              Invalid postcode.
+            if($validation["postcode"] !=""){?>
+            <div class="invalid-feedback">
+            <?php echo $validation["postcode"] ?>
             </div>
             <?php
             } else {?>
