@@ -94,14 +94,13 @@ function footer(){
                     </div>
                 </div>
                 <div class='col-md'>
-                    <form action='POST'>
-                        <h2>Newsletter</h2>
-                        <p>Subscribe to receive monthly promotions, latest updates, and more!</p>
-                        <div class='input-group news-input'>
-                            <input type='text' class='form-control' placeholder='Enter Email' aria-label='Recipient's username' aria-describedby='button-addon2'>
-                            <button class='btn btn-dark ' type='button' id='button-addon2'>Button</button>
-                        </div>
-                    </form>
+                    <h2>Links</h2>
+                    <ul class='list-unstyled'>
+                        <li><a href='index.php' class='text-light'>Home</a></li>
+                        <li><a href='women.php' class='text-light'>Women</a></li>
+                        <li><a href='men.php' class='text-light'>Men</a></li>
+                        <li><a href='about.php' class='text-light'>About Us</a></li>
+                    </ul>
                 </div>
                 
             </div>
