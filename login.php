@@ -15,16 +15,17 @@ if(isset($_POST['email']) && isset($_POST['password'])){
   $query   = "SELECT * FROM user_tb WHERE email=$email_temp";
   $result  = $pdo->query($query);
   
+  //Display error messagge if user is not found
   if (!$result->rowCount()) {
     $errorMsg = "Invalid email or password";
-
-  } else {
+  } else { //If user is found
   $row = $result->fetch();
   $id  = $row['user_id'];
   $pw  = $row['password'];
   $user_role_id = $row['user_role_id'];
   }
 
+  //Check whether password is correct or not
   if (password_verify( $password_temp, $pw))
   {
       session_start();
@@ -64,6 +65,7 @@ function sanitise($pdo, $str)
         <h1 class="m-4 text-center">Log In</h1>
 
         <?php
+        //Display error message if email or password is invalid
         if(isset($errorMsg)){
         echo "<div class='alert alert-danger' role='alert'>";
         echo $errorMsg;
