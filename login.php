@@ -20,7 +20,6 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 
   } else {
   $row = $result->fetch();
-  $fn  = $row['first_name'];
   $id  = $row['user_id'];
   $pw  = $row['password'];
   $user_role_id = $row['user_role_id'];
