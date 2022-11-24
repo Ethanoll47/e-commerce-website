@@ -76,7 +76,7 @@ function footer(){
             <div class='row'>
                 <div class='col-md'>
                     <h2>About Us</h2>
-                    <p class='about'>Thrifted in a Malaysia-based company that sells second hand clothing. We aim to provide customers with the best online shopping experience while also reducing the number of clothes that end up in landfills. Join us making the world a better and thriftier place. </p>
+                    <p class='about'>Thrifted in a Malaysia-based company that sells second-hand clothing. We aim to provide customers with the best online shopping experience while also reducing the number of clothes that end up in landfills. Join us making the world a better and thriftier place. </p>
                 </div>
                 <div class='col-md'>
                     <h2>Contact Us</h2>
