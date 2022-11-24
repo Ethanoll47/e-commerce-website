@@ -213,7 +213,7 @@ if(!empty($_GET["action"])) {
 }
 
 function destroy_session_and_data(){
-    unset($_SESSION['username'], $_SESSION['user_role_id']);
+    unset($_SESSION['user_id'], $_SESSION['user_role_id']);
 
     $_SESSION = array();
     session_unset();
