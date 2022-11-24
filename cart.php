@@ -30,7 +30,6 @@ if(isset($_GET['checkout']) && $_GET['checkout'] == true){
     <?php
   
     if(isset($_SESSION["cart_item"])){
-        $total_quantity = 0;
         $total_price = 0;
     ?>
     <!-- Cart -->
@@ -65,7 +64,6 @@ if(isset($_GET['checkout']) && $_GET['checkout'] == true){
                         </tr>
                     </tbody>
                     <?php
-                    $total_quantity += $item["product_quantity"];
                     $total_price += ($item["product_price"]*$item["product_quantity"]);
                     }
                     ?>
