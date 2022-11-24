@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['user_id'])) {
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 60)) {
         destroy_session_and_data();
         
@@ -17,12 +17,13 @@ if (isset($_SESSION['username'])) {
 
             <div class="nav-buttons order-lg-2">
                 <button type="button" class="btn position-relative pt-0 pb-1"><a href="cart.php"><i class="bi bi-cart fs-4 text-light"></i></a></button>
-                 <!-- Only visible if not logged in -->
                     <?php
+                    // Only visible if logged in
                     if(isset($_SESSION['user_id'])){?>
                         <button type="button" class="btn position-relative pt-0 pb-1"><a href="profile.php"><i class="bi bi-person-circle fs-4 text-light"></i></a></button>
                     <?php
                     }
+                    // Only visible if not logged in
                     else {
                     ?>
                         <button type="button" class="btn position-relative text-light pt-0 pb-1"><a href="login.php" class="text-light">Login</a></button>
