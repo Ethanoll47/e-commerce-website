@@ -1,7 +1,7 @@
-<?php // authenticate3.php
+<?php 
 
 require_once ("php/dbcontroller.php");
-$database = new DBController();
+$db_handle = new DBController();
 
 require_once ("php/component.php");
 require_once ("php/config.php");
