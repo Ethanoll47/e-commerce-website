@@ -12,8 +12,6 @@ if (isset($_GET['edit'])) {
 
 	if (count($product) == 1 ) {
         foreach($product as $key=>$value){  
-		//$n = mysqli_fetch_array($record);
-        // $n = $record->fetch();
             $brand = $product[$key]['product_brand'];
             $name = $product[$key]['product_name'];
             $size = $product[$key]['product_size'];
@@ -30,11 +28,6 @@ if (isset($_GET['edit'])) {
                 $("#editProduct").modal("show");
             });
             </script>';
-        
-
-        // echo "<script>
-        //     document.getElementById('edit1').modal('show');
-        //     </script>";
 	}
 }
 
@@ -69,12 +62,6 @@ if (isset($_GET['delete'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
     <title>Company Name</title>
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript">
-            $(document).ready(function() {
-                $("#edit1").modal("show");
-            });
-    </script> -->
 </head>
 <body>
     <!-- All Products -->

@@ -6,7 +6,7 @@ if (isset($_SESSION['user_id'])) {
         echo "<script>alert('Session time out. You have been logged out.')</script>";
         echo "<script>window.location = 'index.php'</script>";
     }
-    $_SESSION['LAST_ACTIVITY'] = time(); //update last activity time stamp
+    $_SESSION['LAST_ACTIVITY'] = time(); //Update last activity time stamp
 }
 
 ?>
