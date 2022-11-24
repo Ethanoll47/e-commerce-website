@@ -6,8 +6,8 @@ require_once ("php/config.php");
 
 $validation = array("email" => "", "phonenumber" => "", "password" => "", "postcode" => "");
 
-if(isset($_POST['username']) && isset($_POST['password'])){
-
+if(isset($_POST['register'])){
+  
     try
     {
         $pdo = new PDO($attr, $user, $pass, $opts);
