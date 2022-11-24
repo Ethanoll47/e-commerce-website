@@ -28,13 +28,14 @@ require_once("php/config.php");
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="images/banner1.jpg" class="d-block w-100" alt="...">
+            <a href="women.php">
+            <img src="images/banner1.png" class="d-block w-100">
+            </a>
           </div>
           <div class="carousel-item">
-            <img src="images/banner2.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="images/banner3.jpg" class="d-block w-100" alt="...">
+            <a href="men.php">
+            <img src="images/banner2.png" class="d-block w-100">
+            </a>
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
