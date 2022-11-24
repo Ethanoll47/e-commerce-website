@@ -19,14 +19,14 @@ cart();
     <title>Company Name</title>
 </head>
 <body>
+    <!-- Display product information -->
     <?php
     $result = $db_handle->getData('7');
     $row = $result->fetch();
     product($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_condition'], $row['product_price'], $row['product_color'], $row['product_material'], $row['product_image'], $row['product_id'], $row['product_page']);
     ?>
 
-
-    <!-- You may also like -->
+    <!-- Display recommended products -->
     <section class="p-5 bg-light">
         <div class="container text-center">
             <h2 class="mb-4">You may also like</h2>   
