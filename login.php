@@ -21,17 +21,16 @@ if(isset($_POST['email']) && isset($_POST['password'])){
   } else {
   $row = $result->fetch();
   $fn  = $row['first_name'];
-  $un  = $row['username'];
+  $id  = $row['user_id'];
   $pw  = $row['password'];
   $user_role_id = $row['user_role_id'];
   }
 
-  //if (password_verify(str_replace("'", "", $pw_temp), $pw))
   if (password_verify( $password_temp, $pw))
   {
       session_start();
         
-      $_SESSION['username'] = $un;
+      $_SESSION['user_id'] = $id;
       $_SESSION['user_role_id'] = $user_role_id;
         
       echo "<script>window.location ='index.php'</script>";
