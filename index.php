@@ -2,7 +2,7 @@
 session_start();		
 
 require_once ("php/dbcontroller.php");
-$database = new DBController();
+$db_handle = new DBController();
 require_once("php/component.php");
 require_once("php/config.php");
 
@@ -62,7 +62,60 @@ require_once("php/config.php");
             </div>
         </div>
     </section>
+
+    <!-- Featured -->
+    <section class="p-5 bg-light">
+        <div class="container text-center">
+            <h2 class="mb-4">Featured Products</h2>   
+            <div class="d-flex flex-wrap justify-content-center">
+                <?php
+                 $result = $db_handle->getData('1');
+                 $row = $result->fetch();
+                 productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
+              
+                 $result = $db_handle->getData('2');
+                 $row = $result->fetch();
+                 productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
+             
+                 $result = $db_handle->getData('3');
+                 $row = $result->fetch();
+                 productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
+           
+                 $result = $db_handle->getData('4');
+                 $row = $result->fetch();
+                 productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
+                ?>
+            </div>
+        </div>
+    </section>
     
+    <!-- Category -->
+    <section class="p-5 bg-light">
+        <div class="container text-center">
+            <h2 class="mb-4">Shop by Category</h2>   
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="card collection m-3" onclick="window.location.href='men.php';">
+                    <img src="images/menswear.jpg" alt="">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h5>Men</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card collection m-3" onclick="window.location.href='men.php';">
+                    <img src="images/womenswear.jpg" alt="">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h5>Women</h5>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
     <!-- Newsletter -->
     <section class="bg-primary text-light p-5">
         <div class="container">
