@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION['username'])) {
-    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) {
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 60)) {
         destroy_session_and_data();
         
         echo "<script>alert('Session time out. You have been logged out.')</script>";
