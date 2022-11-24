@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION['username'])) {
-    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) {
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 60)) {
         destroy_session_and_data();
         
         echo "<script>alert('Session time out. You have been logged out.')</script>";
@@ -143,7 +143,7 @@ function product($productbrand, $productname, $productsize, $productcondition, $
 
 function productGallery($productbrand, $productname, $productsize, $productprice, $productimage, $productpage){
     echo "
-    <div class='card product m-3' onclick='window.location.href='$productpage';'>
+    <div class='card product m-3' onclick='window.location.href=`$productpage`;'>
         <img src='$productimage' alt=''>
         <div class='card-body'>
             <span>$productbrand</span>

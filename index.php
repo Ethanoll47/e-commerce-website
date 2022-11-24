@@ -2,7 +2,7 @@
 session_start();		
 
 require_once ("php/dbcontroller.php");
-$database = new DBController();
+$db_handle = new DBController();
 require_once("php/component.php");
 require_once("php/config.php");
 
@@ -46,87 +46,34 @@ require_once("php/config.php");
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-
-    <!-- Featured -->
-    <section class="p-5">
+    
+               
+ <!-- Featured -->
+ <section class="p-5 bg-light">
         <div class="container text-center">
-            <h2>Featured Product</h2>   
+            <h2 class="mb-4">Featured Products</h2>   
             <div class="d-flex flex-wrap justify-content-center">
-                <div class="card product m-3" onclick="window.location.href='product.html';">
-                    <img src="images/adidas_jacket.jpg" alt="">
-                    <div class="card-body">
-                        <span>Adidas</span>
-                        <h5>Sports Jacket &#x2022 Medium</h5>
-                        <h5>RM10</h5>
-                    </div>
-                </div>
-
-                <div class="card product m-3" onclick="window.location.href='product.html';">
-                    <img src="images/adidas_jacket.jpg" alt="">
-                    <div class="card-body">
-                        <span>Adidas</span>
-                        <h5>Sports Jacket &#x2022 Medium</h5>
-                        <h5>RM10</h5>
-                    </div>
-                </div>
-
-                <div class="card product m-3" onclick="window.location.href='product.html';">
-                    <img src="images/adidas_jacket.jpg" alt="">
-                    <div class="card-body">
-                        <span>Adidas</span>
-                        <h5>Sports Jacket &#x2022 Medium</h5>
-                        <h5>RM10</h5>
-                    </div>
-                </div>
-
-                <div class="card product m-3" onclick="window.location.href='product.html';">
-                    <img src="images/adidas_jacket.jpg" alt="">
-                    <div class="card-body">
-                        <span>Adidas</span>
-                        <h5>Sports Jacket &#x2022 Medium</h5>
-                        <h5>RM10</h5>
-                    </div>
-                </div>
-
-                <div class="card product m-3" onclick="window.location.href='product.html';">
-                    <img src="images/adidas_jacket.jpg" alt="">
-                    <div class="card-body">
-                        <span>Adidas</span>
-                        <h5>Sports Jacket &#x2022 Medium</h5>
-                        <h5>RM10</h5>
-                    </div>
-                </div>
-
-                <div class="card product m-3" onclick="window.location.href='product.html';">
-                    <img src="images/adidas_jacket.jpg" alt="">
-                    <div class="card-body">
-                        <span>Adidas</span>
-                        <h5>Sports Jacket &#x2022 Medium</h5>
-                        <h5>RM10</h5>
-                    </div>
-                </div>
-
-                <div class="card product m-3" onclick="window.location.href='product.html';">
-                    <img src="images/adidas_jacket.jpg" alt="">
-                    <div class="card-body">
-                        <span>Adidas</span>
-                        <h5>Sports Jacket &#x2022 Medium</h5>
-                        <h5>RM10</h5>
-                    </div>
-                </div>
-
-                <div class="card product m-3" onclick="window.location.href='product.html';">
-                    <img src="images/adidas_jacket.jpg" alt="">
-                    <div class="card-body">
-                        <span>Adidas</span>
-                        <h5>Sports Jacket &#x2022 Medium</h5>
-                        <h5>RM10</h5>
-                    </div>
-                </div>
+                <?php
+                 $result = $db_handle->getData('1');
+                 $row = $result->fetch();
+                 productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
+              
+                 $result = $db_handle->getData('2');
+                 $row = $result->fetch();
+                 productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
+             
+                 $result = $db_handle->getData('3');
+                 $row = $result->fetch();
+                 productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
+           
+                 $result = $db_handle->getData('4');
+                 $row = $result->fetch();
+                 productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
+                ?>
             </div>
         </div>
     </section>
-
+    
     <!-- About Us -->
     <section class="bg-dark text-light p-5 text-center" style="background-image:url('images/clothes.png'); width: 100%;  background-size: cover; background-position: center;">
         <div class="container">
