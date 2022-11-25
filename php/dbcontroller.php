@@ -48,4 +48,3 @@ class DBController {
 		return $result;
 	}
 }
-?>

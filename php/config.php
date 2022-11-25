@@ -25,4 +25,3 @@ function getUserAccessRoleByID($id){
 
 	return $row['user_role'];
 }
-?>

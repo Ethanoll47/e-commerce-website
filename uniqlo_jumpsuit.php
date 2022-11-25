@@ -9,6 +9,7 @@ cart();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,6 +19,7 @@ cart();
     <link rel="stylesheet" href="style.css">
     <title>Company Name</title>
 </head>
+
 <body>
     <!-- Display product information -->
     <?php
@@ -29,12 +31,12 @@ cart();
     <!-- Display recommended products -->
     <section class="p-5 bg-light">
         <div class="container text-center">
-            <h2 class="mb-4">You may also like</h2>   
+            <h2 class="mb-4">You may also like</h2>
             <div class="d-flex flex-wrap justify-content-center">
                 <?php
-                 $result = $db_handle->getData('A002');
-                 $row = $result->fetch();
-                 productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
+                $result = $db_handle->getData('A002');
+                $row = $result->fetch();
+                productGallery($row['product_brand'], $row['product_name'], $row['product_size'], $row['product_price'], $row['product_image'], $row['product_page']);
                 ?>
             </div>
         </div>
@@ -46,4 +48,5 @@ cart();
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
+
 </html>
