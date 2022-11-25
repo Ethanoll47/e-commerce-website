@@ -192,7 +192,7 @@ function data_validation($data, $data_pattern, $data_type)
             <label for="state">State</label>
           </div>
 
-          <button type="submit" class="btn btn-dark btn-lg mt-3 mb-3" name="register" id="register">Create Account</button>
+          <button type="submit" class="btn btn-primary btn-lg mt-3 mb-3" name="register" id="register">Create Account</button>
         </div>
 
       </div>
