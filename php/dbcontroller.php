@@ -7,8 +7,6 @@ class DBController {
 	public $conn;
 		
 	function __construct() {
-		// $database = $this->database;
-
 		$attr = "mysql:host=". $this->host .";dbname=". $this->database;
 		$opts =
 		[

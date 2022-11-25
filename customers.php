@@ -12,8 +12,6 @@ if (isset($_GET['edit'])) {
 
 	if (count($customer) == 1 ) {
         foreach($customer as $key=>$value){  
-		//$n = mysqli_fetch_array($record);
-        // $n = $record->fetch();
             $firstname = $customer[$key]['first_name'];
             $lastname = $customer[$key]['last_name'];
             $email = $customer[$key]['email'];
@@ -30,11 +28,6 @@ if (isset($_GET['edit'])) {
                 $("#editCustomer").modal("show");
             });
             </script>';
-        
-
-        // echo "<script>
-        //     document.getElementById('edit1').modal('show');
-        //     </script>";
 	}
 }
 
@@ -69,12 +62,6 @@ if (isset($_GET['delete'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
     <title>Company Name</title>
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript">
-            $(document).ready(function() {
-                $("#edit1").modal("show");
-            });
-    </script> -->
 </head>
 <body>
     <!-- All Products -->
@@ -112,11 +99,9 @@ if (isset($_GET['delete'])) {
                         <td><?php echo $customer_array[$key]["city"]; ?></td>
                         <td><?php echo $customer_array[$key]["state"]; ?></td>
                         <td>
-                            <!-- class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit" -->
                             <a href="customers.php?edit=<?php echo $customer_array[$key]["user_id"]; ?>" class="text-primary">
                                 <i class="bi bi-pencil-square"></i>
-                            </a>
-                            
+                            </a>      
                         </td>
                         <td>
                             <a href="customers.php?delete=<?php echo $customer_array[$key]["user_id"]; ?>" class="text-danger"><i class="bi bi-trash-fill"></i></a>
@@ -132,8 +117,8 @@ if (isset($_GET['delete'])) {
     </section>
     
 
-<!-- Modal -->
-<div class="modal fade" id="editCustomer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+    <!-- Modal -->
+    <div class="modal fade" id="editCustomer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
