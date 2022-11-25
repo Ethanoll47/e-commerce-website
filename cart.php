@@ -30,7 +30,6 @@ if(isset($_GET['checkout']) && $_GET['checkout'] == true){
     <?php
   
     if(isset($_SESSION["cart_item"])){
-        $total_quantity = 0;
         $total_price = 0;
     ?>
     <!-- Cart -->
@@ -61,11 +60,10 @@ if(isset($_GET['checkout']) && $_GET['checkout'] == true){
                             <td><?php echo $item["product_price"]; ?></td>
                             <td><?php echo $item["product_quantity"]; ?></td>
                             <td><?php echo "RM ". number_format($item_price,2); ?></td>
-                            <td><a href="cart.php?action=remove&product_id=<?php echo $item["product_id"]; ?>"><i class="bi bi-trash-fill"></i></a></td>
+                            <td><a href="cart.php?action=remove&product_id=<?php echo $item["product_id"]; ?>"><i class="bi bi-trash-fill text-danger"></i></a></td>
                         </tr>
                     </tbody>
                     <?php
-                    $total_quantity += $item["product_quantity"];
                     $total_price += ($item["product_price"]*$item["product_quantity"]);
                     }
                     ?>
@@ -80,7 +78,7 @@ if(isset($_GET['checkout']) && $_GET['checkout'] == true){
                 </table>
             </div>
             <div class="d-flex justify-content-center justify-content-sm-end me-sm-4">
-            <a href="cart.php?checkout=true"><button type="submit" class="btn btn-info text-light btn-lg" name="checkout">Checkout</button></a>
+            <a href="cart.php?checkout=true"><button type="submit" class="btn btn-primary text-light btn-lg" name="checkout">Checkout</button></a>
             </div>
         </div>
     </section>

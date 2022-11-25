@@ -83,7 +83,7 @@ function sanitise($pdo, $str)
           <label for="floatingPassword">Password</label>
         </div>
 
-        <button type="submit" class="btn btn-dark btn-lg mt-3 mb-3" name="login" id="login">Log In</button>
+        <button type="submit" class="btn btn-primary btn-lg mt-3 mb-3" name="login" id="login">Log In</button>
         <div>
           Don't have an account? <a href="register.php">Sign Up Now</a>
         </div>
