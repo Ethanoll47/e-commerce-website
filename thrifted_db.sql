@@ -51,5 +51,5 @@ CREATE TABLE IF NOT EXISTS `user_tb` (
 			);
 
 INSERT INTO `user_tb` (`user_role_id`, `first_name`, `last_name`, `email`, `phone_number`, `username`, `password`, `address`, `postcode`, `city`, `state`) VALUES
-				(1, 'Edric', 'Leong', 'edricleongyj@gmail.com', '0182666828', 'Edric', '$2y$10\$xcpYtO9rEXHruEj.gxuZFeKAcIYOWf/oBg.wbGHQeXlp4m6Wgt7b6', '20, Jalan Puteri 12/17A, Bandar Puteri', '47100', 'Puchong', 'Selangor');
+				(1, 'John', 'Doe', 'johndoe@gmail.com', '0122625828', 'John', '$2y$10$2YkhNjtM24WcwuL1jmLUCeEXSfS/fH8QFiIBLZBb9bqHu6KjV1ERi', '22, Jalan Puteri 11/10, Bandar Puteri', '47100', 'Puchong', 'Selangor');
 

@@ -1,9 +1,5 @@
-# E-Commerce Website
+# Thrifted E-Commerce Website
 
-E-Commerce Website that sells second-hand products using PHP!
-
-## Subheader
-New subheader
-Subheader text 2
-new text
-NEW CHANGE
+Setup Steps:
+1. Copy and Paste the sql code from "thrifted_db.sql" into phpmyadmin to set up the database before running the website.
+2. To test the admin features, please input "johndoe@gmail.com" for email and "John123" for the password. 
